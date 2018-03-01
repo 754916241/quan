@@ -1,3 +1,29 @@
-<p>
-  cv-mng works!
-</p>
+<div class="container-fluid">
+  <!-- 左侧导航栏 -->
+  <div>
+    <ul class="navbar-nav">
+      <li class="nav-item cvMng">
+        <img src="../../../assets/image/manager.png">
+        <span>应聘管理</span>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="hrCenter">待处理简历</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="cvMng">已通知面试</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="jobMng">不合适</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="jobPublish">已录用</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="cvMng_detail">
+    <router-outlet></router-outlet>
+  </div>
+
+
+</div>

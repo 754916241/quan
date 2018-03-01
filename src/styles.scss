@@ -14,8 +14,15 @@ body {
 html {
   min-height: 100%;
   position: relative;
-  padding-bottom: 162px;
+  //padding-bottom: 162px;
 }
 
+a{
+  color: #000;
+  &:hover{text-decoration: none;};
+}
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
 @import "~jquery-ui-dist/jquery-ui.css";
-@import "~ng2-toastr/bundles/ng2-toastr.min.css";
+

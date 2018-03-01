@@ -1,0 +1,46 @@
+<!-- 顶部导航-->
+<div class="navbar fixed-top main-nav" role="navigation">
+  <div class="container">
+
+    <div class="navbar-expand-sm">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <img src="../../assets/image/logo.png" class="navbar-brand-my">
+        </li>
+        <li routerLinkActive="active" class="nav-item active">
+          <a class="nav-link" routerLink="hrCenter">HR中心</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cvMng">应聘管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="jobMng">职位管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="jobPublish">发布职位</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="userMng">账号管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link login">欢迎您，权</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 主体内容区域 -->
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>
+<!-- 底部区域 -->
+<div class="footer">
+  <div class="container">
+
+      <p>
+        中国领先的实习生招聘平台 ©2018 权哥招聘，谁敢不从<br>
+        Powered by QUAN
+      </p>
+
+  </div>
+</div>

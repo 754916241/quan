@@ -1,3 +1,31 @@
-<p>
-  job-mng works!
-</p>
+<div class="container-fluid">
+  <!-- 左侧导航栏 -->
+  <div class="">
+    <ul class="navbar-nav">
+      <li class="nav-item jobMng">
+        <img src="../../../assets/image/liebiao.png">
+        <span>职位管理</span>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="hrCenter">招聘中职位</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="cvMng">已下线职位</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="jobMng">已过期职位</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="jobPublish">审核中职位</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="jobPublish">发布职位</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="jobMng_detail">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
