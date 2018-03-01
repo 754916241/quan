@@ -7,10 +7,10 @@
         <span>账号管理</span>
       </li>
       <li routerLinkActive="active" class="nav-item">
-        <a class="nav-link" routerLink="hrCenter">公司信息</a>
+        <a [class.active]="isActive[0]" class="nav-link" routerLink="hrCenter" (click)="changeLinkColor(0)">公司信息</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="cvMng">修改密码</a>
+        <a [class.active]="isActive[1]" class="nav-link" routerLink="cvMng" (click)="changeLinkColor(1)">修改密码</a>
       </li>
 
     </ul>

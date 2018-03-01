@@ -13,6 +13,11 @@ const routes: Routes = [
     component: RecruitComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'hrCenter',
+        pathMatch: 'full'
+      },
+      {
       path: 'hrCenter',
       component: HrcenterComponent
       },

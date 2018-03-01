@@ -7,19 +7,19 @@
         <span>职位管理</span>
       </li>
       <li routerLinkActive="active" class="nav-item">
-        <a class="nav-link" routerLink="hrCenter">招聘中职位</a>
+        <a [class.active]="isActive[0]" class="nav-link" routerLink="hrCenter" (click)="getJobData(0)">招聘中职位</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="cvMng">已下线职位</a>
+        <a [class.active]="isActive[1]" class="nav-link" routerLink="cvMng" (click)="getJobData(1)">已下线职位</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="jobMng">已过期职位</a>
+        <a [class.active]="isActive[2]" class="nav-link" routerLink="jobMng" (click)="getJobData(2)">已过期职位</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="jobPublish">审核中职位</a>
+        <a [class.active]="isActive[3]" class="nav-link" routerLink="jobPublish" (click)="getJobData(3)">审核中职位</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="jobPublish">发布职位</a>
+        <a [class.active]="isActive[4]" class="nav-link" routerLink="jobPublish" (click)="getJobData(4)">发布职位</a>
       </li>
     </ul>
   </div>
