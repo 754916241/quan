@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserMngComponent implements OnInit {
 
-  private isActive: Array<boolean> = [true, false];
+  public isActive: Array<boolean> = [true, false];
   constructor() { }
 
   ngOnInit() {
   }
 
-  private changeLinkColor(position: number) {
+  public changeLinkColor(position: number) {
     for(let i = 0; i < 2; i++)
       this.isActive[i] = false;
     this.isActive[position] = true;

@@ -19,7 +19,7 @@
     }
 
     .active{
-      color: #e2610d;
+      color: #e27419;
       font-weight: bold;
     }
   }
@@ -32,9 +32,43 @@
   }
 }
 
-.jobMng_detail{
+.jobMng-detail{
   width: 900px;
-  background: black;
   min-height:800px;
   float: right;
+  .job-list{
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    background: #fff;
+    text-align: center;
+    width: 940px;
+
+    .job-list-head{
+      background: #f3f3f3;
+      font-size: 14px;
+      color: #999;
+      height: 40px;
+      td{
+        min-width: 100px;
+        span{
+          border-right: 1px solid #ccc;
+          height: 20px;
+          float: right;
+        }
+      }
+    }
+
+    tr > td > span{
+      color: #169af6;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .job-list-content{
+      height: 55px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+  }
 }

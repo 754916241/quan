@@ -19,13 +19,48 @@
         <a [class.active]="isActive[3]" class="nav-link" routerLink="jobPublish" (click)="getJobData(3)">审核中职位</a>
       </li>
       <li class="nav-item">
-        <a [class.active]="isActive[4]" class="nav-link" routerLink="jobPublish" (click)="getJobData(4)">发布职位</a>
+        <a class="nav-link" routerLink="/recruit/jobPublish">发布职位</a>
       </li>
     </ul>
   </div>
 
-  <div class="jobMng_detail">
-    <router-outlet></router-outlet>
+  <div class="jobMng-detail">
+    <table class="job-list">
+
+     <tr class="job-list-head">
+        <td>职位名称<span> </span></td>
+        <td>申请情况<span> </span></td>
+        <td>学历要求<span> </span></td>
+        <td>工作城市<span> </span></td>
+        <td>更新时间<span> </span></td>
+        <td>操作</td>
+      </tr>
+
+      <tr class="job-list-content" *ngFor="let job of jobList">
+        <td class="interns-rl-fl">
+          <div class="mgl-had-check mgl-checks">
+            <input type="checkbox">
+            <a href="#" target="_blank"><span class="interns-name">{{job.jobName}}</span></a>
+          </div>
+        </td>
+
+        <td>
+          {{job.jobApplyNum}}投递
+        </td>
+        <td>{{job.jobDegree}}</td>
+        <td>{{job.jobCity}}</td>
+        <td>
+          {{job.jobUpdateTime}}
+        </td>
+
+        <td>
+          <span class="refresh_btn">刷新</span>
+          <span class="alter_btn">修改</span>
+          <span class="offline_btn">下线</span>
+        </td>
+
+      </tr>
+    </table>
   </div>
 
 </div>

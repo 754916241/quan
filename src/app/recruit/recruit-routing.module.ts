@@ -4,8 +4,8 @@ import {HrcenterComponent} from './hrcenter/hrcenter.component';
 import {CvMngComponent} from './cv-mng/cv-mng.component';
 import {JobMngComponent} from './job-mng/job-mng.component';
 import {JobPublishComponent} from './job-publish/job-publish.component';
-import {UserMngComponent} from './user-mng/user-mng.component';
 import {RecruitComponent} from './recruit.component';
+
 
 const routes: Routes = [
   {
@@ -22,11 +22,11 @@ const routes: Routes = [
       component: HrcenterComponent
       },
       {
-        path: 'cvMng',
+        path: 'cvMng/:page',
         component: CvMngComponent
       },
       {
-        path: 'jobMng',
+        path: 'jobMng/:page',
         component: JobMngComponent
       },
       {
@@ -35,7 +35,7 @@ const routes: Routes = [
       },
       {
         path: 'userMng',
-        component: UserMngComponent
+        loadChildren: './user-mng/user-mng.module#UserMngModule'
       }
     ]
   }

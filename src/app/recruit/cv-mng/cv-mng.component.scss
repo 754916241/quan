@@ -4,6 +4,7 @@
   padding-top: 20px;
 }
 
+
 .navbar-nav{
   width: 180px;
   float: left;
@@ -15,10 +16,11 @@
     .nav-link{
       color: #1c4f70;
       font-size: 15px;
+      cursor: pointer;
     }
 
     .active{
-       color: #E2610D;
+       color: #e27419;
        font-weight: bold;
      }
   }
@@ -32,9 +34,60 @@
   }
 }
 
-.cvMng_detail{
+.cvMng-detail{
   width: 900px;
-  background: black;
   min-height:800px;
   float: right;
+
+  .cv-main-content{
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    border-bottom: 1px solid #d9d9d9;
+
+    .cv-photo{
+      float: left;
+      margin-right: 20px;
+
+      .cv-headImg{
+        width: 80px;
+        height: 90px;
+        margin-left: 10px;
+      }
+    }
+
+    .cv-top{
+      .cv-job{
+        color: #1c4f70;
+        float: none;
+      }
+
+      .cv-read{
+        color: #999;
+        float: right;
+      }
+      .cv-deliver-time{
+        color: #999;
+        float: right;
+        margin-right: 50px;
+      }
+    }
+
+    .cv-bottom{
+      span{
+        margin-right: 10px;
+      }
+      .cv-name{
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .cv-result{
+        float: right;
+        margin-top: -30px;
+        margin-left: 30px;
+        cursor:pointer
+      }
+    }
+  }
 }

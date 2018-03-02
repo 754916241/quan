@@ -1,0 +1,9 @@
+{
+"jobData":[
+    {"id":1,"jobName":"算法实习生","jobUpdateTime":"2017-05-17 10:44","jobCity":"广州","jobDegree":"硕士","jobApplyNum":"10","status":"0"},
+    {"id":2,"jobName":"C++后台开发工程师","jobUpdateTime":"2016-11-21 10:44","jobCity":"广州","jobDegree":"硕士","jobApplyNum":"10","status":"1"},
+    {"id":3,"jobName":"c++后端实习生","jobUpdateTime":"2016-11-21 10:44","jobCity":"广州","jobDegree":"硕士","jobApplyNum":"10","status":"2"},
+    {"id":4,"jobName":"腾讯互娱招聘组设计实习生","jobUpdateTime":"2016-11-21 10:44","jobCity":"广州","jobDegree":"硕士","jobApplyNum":"10","status":"3"}
+  ]
+}
+

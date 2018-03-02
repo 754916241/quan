@@ -7,22 +7,58 @@
         <span>应聘管理</span>
       </li>
       <li routerLinkActive="active" class="nav-item" >
-        <a [class.active]="isActive[0]" class="nav-link" routerLink="hrCenter" (click)="getCVData(0)" >待处理简历</a>
+        <a [class.active]="isActive[0]" class="nav-link"  (click)="getCVData(0)" >待处理简历</a>
       </li>
       <li class="nav-item">
-        <a [class.active]="isActive[1]" class="nav-link" routerLink="cvMng" (click)="getCVData(1)">已通知面试</a>
+        <a [class.active]="isActive[1]" class="nav-link" (click)="getCVData(1)">已通知面试</a>
       </li>
       <li class="nav-item">
-        <a [class.active]="isActive[2]" class="nav-link" routerLink="jobMng" (click)="getCVData(2)">不合适</a>
+        <a [class.active]="isActive[2]" class="nav-link"  (click)="getCVData(2)">不合适</a>
       </li>
       <li class="nav-item">
-        <a [class.active]="isActive[3]" class="nav-link" routerLink="jobPublish" (click)="getCVData(3)">已录用</a>
+        <a [class.active]="isActive[3]" class="nav-link"  (click)="getCVData(3)">已录用</a>
       </li>
     </ul>
   </div>
 
-  <div class="cvMng_detail">
-    <router-outlet></router-outlet>
+  <!-- 简历列表-->
+  <div class="cvMng-detail">
+    <div class="cv-main-content" *ngFor="let cv of cvList">
+      <!--头像 -->
+      <div class="cv-photo">
+        <input type="checkbox" style="width: 16px;height: 16px;">
+        <img class="cv-headImg" [src]="cv.empImgPath">
+      </div>
+
+      <div class="cv-top">
+        <p class="cv-job">{{cv.empJob}}</p>
+        <p class="cv-read">查看简历</p>
+        <p class="cv-deliver-time">投递时间：{{cv.empDeliverTime}}</p>
+      </div>
+
+      <!--详细信息-->
+      <div class="cv-bottom">
+        <span class="cv-name">{{cv.empName}}</span>
+        <span>{{cv.empSex}}</span>
+        <span>现居{{cv.empAddress}}</span>
+        <span>5天/周</span>
+        <span>{{cv.empPracticeTime}}个月</span>
+        <span>{{cv.empEntryDate}}后可入职</span>
+        <div style="margin-top: 10px">
+          <p class="cv-education">{{cv.empSchool}}-{{cv.empMajor}} · {{cv.empDegree}} · {{cv.empGraduationYear}}年毕业</p>
+          <p class="cv-result">不合适</p>
+          <p class="cv-result" style="color: #e2811a">面试邀请</p>
+        </div>
+      </div>
+        <!--这里就是新添加的属性-->
+    </div>
+
+    <p-paginator rows="{{itemsPerPage}}"
+                 totalRecords="{{totalRecords}}"
+                 first="{{offset}}"
+                 (onPageChange)="pageChanged($event)">
+    </p-paginator>
+
   </div>
 
 
