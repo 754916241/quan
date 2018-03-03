@@ -13,10 +13,14 @@
         <a [class.active]="isActive[1]" class="nav-link" routerLink="/recruit/userMng/changePassword" (click)="changeLinkColor(1)">修改密码</a>
       </li>
 
+      <li class="nav-item">
+        <a [class.active]="isActive[2]" class="nav-link" routerLink="/recruit/userMng/companyValidate" (click)="changeLinkColor(2)">公司验证</a>
+      </li>
+
     </ul>
   </div>
 
   <div class="userMng-detail">
-    <router-outlet></router-outlet>
+    <router-outlet [company] = "company"></router-outlet>
   </div>
 </div>

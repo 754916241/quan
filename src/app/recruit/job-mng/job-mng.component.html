@@ -61,6 +61,12 @@
 
       </tr>
     </table>
+
+    <p-paginator rows="{{itemsPerPage}}"
+                 totalRecords="{{totalRecords}}"
+                 first="{{offset}}"
+                 (onPageChange)="pageChanged($event)">
+    </p-paginator>
   </div>
 
 </div>

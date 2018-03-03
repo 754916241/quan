@@ -31,8 +31,17 @@ export class CvMngComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.params.subscribe(params => {
-      this.currentPage=params.page;
-      this.getCVData(0);
+      switch (params.page){
+        //代表默认选择第一项(项数从0开始)
+        case '100':
+          this.currentPage = 1;
+          this.getCVData(1);
+          break;
+        default:
+          this.currentPage=params.page;
+          this.getCVData(0);
+          break;
+      }
     });
   }
 
