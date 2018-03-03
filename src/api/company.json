@@ -1,14 +1,17 @@
 {
-  "id": "5",
+  "companyData":
+  [{"id": "5",
   "companyName": "权哥科技（武汉）有限公司",
+  "password": "123456",
   "companyAddress": "武昌",
   "companyShortName": "权科",
   "companyField": "互联网",
   "companyScale": "5000",
   "companyURL": "www.quan.com",
   "companyLabel": [],
-  "companyIntroduction": "权哥科技成立于2018年11月，是目前中国领先的互联网增值服务提供商之一。",
-  "companyImgPath": "http://www.shixiseng.com",
+  "companyIntroduction": "权哥科技成立于2018年11月，是目前中国领先的互联网增值服务提供商之一。成立10多年来，权哥一直秉承“一切以用户价值为依归”的经营理念，为亿级海量用户提供稳定优质的各类服务，始终处于稳健发展状态。2004年6月16日，权哥控股有限公司在香港联交所主板公开上市(股票代号700)。",
+  "companyImgPath": "https://sxsimg.xiaoyuanzhao.com/D7/27/D7887D93D2B78CB920EAEF3E4D3AAA27.png",
   "status": "0"
+  }]
 }
 

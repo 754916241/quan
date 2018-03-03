@@ -10,24 +10,30 @@ import {CompanyBean} from "./model/CompanyBean";
 export class UserMngComponent implements OnInit {
 
   public isActive: Array<boolean> = [true, false, false];
-  public company: CompanyBean = {
-    "id": "5",
-    "companyName": "权哥科技（武汉）有限公司",
-    "companyAddress": "武昌",
-    "companyShortName": "权科",
-    "companyField": "互联网",
-    "companyScale": "5000",
-    "companyURL": "www.quan.com",
-    "companyLabel": [],
-    "companyIntroduction": "权哥科技成立于2018年11月，是目前中国领先的互联网增值服务提供商之一。",
-    "companyImgPath": "http://www.shixiseng.com",
-    "status": "0"
-  };
+  public  company: CompanyBean;
   constructor(
     public companService: CompanyService
-  ) { }
+  ) {}
 
   ngOnInit() {
+    //this.getCompanyData(0);
+  }
+
+  /**
+   * 获取公司信息
+   * @param {number} position
+   * 点击了哪个位置
+   */
+  public getCompanyData(position: number){
+    this.changeLinkColor(position);
+    return this.companService.getCompany().subscribe(
+      res => {
+        this.company = res;
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
 
   public changeLinkColor(position: number) {

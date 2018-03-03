@@ -2,6 +2,7 @@
 export class CompanyBean {
   id: string;
   companyName: string;
+  companyPassword: string;
   companyAddress: string;
   companyShortName: string;
   companyField: string;

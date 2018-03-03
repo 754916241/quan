@@ -1,0 +1,42 @@
+.compro{
+  padding: 40px 0 0 30px;
+  text-align: center;
+  font-size: 18px;
+
+  .status-content{
+    position: relative;
+    padding: 0 45px 0 15px;
+    font-size: 0;
+    letter-spacing: 0;
+    margin-top: 30px;
+
+    .proving{
+      display: inline-block;
+      position: relative;
+      width: 270px;
+      text-align: center;
+      font-size: 16px;
+      vertical-align: top;
+
+      .proving-index{
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+      }
+
+      .proving-line{
+        position: absolute;
+        width: 265px;
+        height: 2px;
+        background-color: #999;
+        top: 10px;
+        left: 145px;
+      }
+    }
+  }
+}
+
+.cactive{
+  display: block;
+}

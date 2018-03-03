@@ -1,3 +1,49 @@
-<p>
-  company-info works!
-</p>
+<div *ngFor="let company of companyList">
+  <div class="center-title">
+    <p>{{company.companyName}}</p>
+  </div>
+  <!--具体内容-->
+  <div class="center-main">
+    <div class="cmain-l">
+      <div class="editor">
+        <div class="cml-t">
+          <h4>{{company.companyShortName}}</h4>
+        </div>
+        <div class="cml-c">
+          <span>地点：{{company.companyAddress}}</span>
+          <span>领域：{{company.companyField}}</span>
+          <span>规模：{{company.companyScale}}人以上</span>
+          <span>网址：{{company.companyURL}}</span>
+        </div>
+      </div>
+
+
+      <span>公司标签：</span>
+      <div class="center-pb">
+        <div class="labledetial flabledetial"><p class="mtag">饮料茶水间</p><p class="mtag">培训分享</p><p class="mtag">制冷</p><p class="mtag"> 戴姆勒奔驰</p><p class="mtag">体验</p><p class="mtag">研究助理实习</p><p class="mtag">在梦想</p><p class="mtag">贴心下午茶</p><p class="mtag">不打杂！</p></div>
+        <span class="ownlable">
+
+          <img src="https://sxsimg.xiaoyuanzhao.com/static/hr/img/fresh.png?v=66ca72a93deb29790c4e955d8ee86803">
+        </span>
+      </div>
+
+    </div>
+
+    <div class="comlogo">
+      <div class="logoimg">
+        <img [src]="company.companyImgPath" class="comlogos">
+
+      </div>
+      <p>*图片不能超过300k</p>
+      <!--<div class="clickup">点击上传logo</div>-->
+    </div>
+
+    <div class="comintro">
+      <span>公司介绍：</span>
+      <div class="cominfom">
+        {{company.companyIntroduction}}
+      </div>
+    </div>
+  </div>
+</div>
+

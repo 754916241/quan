@@ -26,9 +26,19 @@
   }
 }
 
-.jobPublish_detail{
+.jobPublish-detail{
   width: 900px;
-  background: black;
   min-height:800px;
   float: right;
+  padding: 30px;
+  background: #fff;
+  .navbar-nav{
+    .nav-item{
+      text-align: center;
+      padding: 28px 0 22px 0;
+      span{
+        font-size: 18px;
+      }
+    }
+  }
 }

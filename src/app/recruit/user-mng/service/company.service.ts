@@ -10,9 +10,8 @@ export class CompanyService {
   constructor(public http: HttpClient,
   ) { }
 
-  public getJobList(companyStatus: number = 0): Observable<any> {
-    return this.http.get(this.url, {params: new HttpParams().
-      set('companyStatus', `${companyStatus}`)});
+  public getCompany(): Observable<any> {
+    return this.http.get(this.url);
   }
 
 }
