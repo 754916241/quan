@@ -23,36 +23,92 @@
 
   <!-- 简历列表-->
   <div class="cvMng-detail">
-    <div class="cv-main-content" *ngFor="let cv of cvList">
+    <div class="cv-main-content" *ngFor="let cv of cvList; let i =  index;">
       <!--头像 -->
       <div class="cv-photo">
         <input type="checkbox" style="width: 16px;height: 16px;">
         <img class="cv-headImg" [src]="cv.empImgPath">
       </div>
 
-      <div class="cv-top">
+      <div class="cv-top" data-toggle="modal" data-target="#cvDetailModal">
         <p class="cv-job">{{cv.empJob}}</p>
         <p class="cv-read">查看简历</p>
         <p class="cv-deliver-time">投递时间：{{cv.empDeliverTime}}</p>
       </div>
 
       <!--详细信息-->
-      <div class="cv-bottom">
+      <div class="cv-bottom"  data-toggle="modal" data-target="#cvDetailModal">
         <span class="cv-name">{{cv.empName}}</span>
         <span>{{cv.empSex}}</span>
         <span>现居{{cv.empAddress}}</span>
         <span>5天/周</span>
         <span>{{cv.empPracticeTime}}个月</span>
         <span>{{cv.empEntryDate}}后可入职</span>
-        <div style="margin-top: 10px">
+        <div style="margin-top: 10px" (click)="$event.stopPropagation()" >
           <p class="cv-education">{{cv.empSchool}}-{{cv.empMajor}} · {{cv.empDegree}} · {{cv.empGraduationYear}}年毕业</p>
           <p class="cv-result">不合适</p>
           <p class="cv-result" style="color: #e2811a">面试邀请</p>
         </div>
       </div>
-        <!--这里就是新添加的属性-->
+
+      <!--点击后的弹出框 -->
+      <div class="modal fade" id="cvDetailModal" tabindex="-1" role="dialog" aria-labelledby="cvDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content" style="width: 600px">
+            <div class="modal-header">
+              <h5 class="modal-title" id="cvDetailModalLabel">简历详情</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="top">
+                <img [src]="cv.empImgPath">
+                <span class="name">{{cv.empName}}</span>
+                <span class="job">{{cv.empJob}}</span>
+                <p class="phone">电话：1333333333</p>
+                <p class="email">邮箱: 455645456@xxx.com</p>
+              </div>
+
+              <div class="education">
+                <h4>教育背景</h4>
+                <div style="min-height: 250px">
+
+                </div>
+              </div>
+
+              <div class="experience">
+                <h4>实习经历</h4>
+                <div style="min-height: 250px">
+
+                </div>
+              </div>
+
+              <div class="credentials">
+                <h4>资格证书</h4>
+                <div style="min-height: 250px">
+
+                </div>
+              </div>
+
+              <div class="personal">
+                <h4>自我评价</h4>
+                <div style="min-height: 250px">
+
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">通知面试</button>
+              <button type="button" class="btn btn-primary">不合适</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
+    <!-- 分页 -->
     <p-paginator rows="{{itemsPerPage}}"
                  totalRecords="{{totalRecords}}"
                  first="{{offset}}"

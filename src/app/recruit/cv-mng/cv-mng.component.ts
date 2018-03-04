@@ -78,6 +78,9 @@ export class CvMngComponent implements OnInit {
   public pageChanged(event:any):void {
     let temp=parseInt(event.page)+1;
     this.router.navigateByUrl("recruit/cvMng/"+temp);
+
   }
+
+  public a: number;
 
 }

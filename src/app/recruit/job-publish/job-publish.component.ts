@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {JobPublishBean} from "./model/job-publish";
 
 @Component({
   selector: 'app-job-publish',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./job-publish.component.scss']
 })
 export class JobPublishComponent implements OnInit {
+
+  public jobPublish: JobPublishBean;
 
   constructor() { }
 

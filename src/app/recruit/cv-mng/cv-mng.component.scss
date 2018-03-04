@@ -89,5 +89,38 @@
         cursor:pointer
       }
     }
+
+    .modal{
+      .modal-body{
+
+        h4{
+          font-size: 21px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #404040;
+        }
+        .top{
+          img{
+            float:right;
+          }
+
+          .name{
+            font-size: 25px;
+            font-weight: bold;
+          }
+
+          .job{
+            margin-left: 50px;
+          }
+
+          .phone{
+            margin-top: 20px;
+          }
+        }
+
+        .education{
+
+        }
+      }
+    }
   }
 }

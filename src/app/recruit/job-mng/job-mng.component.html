@@ -24,9 +24,8 @@
     </ul>
   </div>
 
-  <div class="jobMng-detail">
+  <div class="jobMng-detail" >
     <table class="job-list">
-
      <tr class="job-list-head">
         <td>职位名称<span> </span></td>
         <td>申请情况<span> </span></td>
@@ -36,11 +35,11 @@
         <td>操作</td>
       </tr>
 
-      <tr class="job-list-content" *ngFor="let job of jobList">
+      <tr class="job-list-content"  *ngFor="let job of jobList">
         <td class="interns-rl-fl">
           <div class="mgl-had-check mgl-checks">
             <input type="checkbox">
-            <a href="#" target="_blank"><span class="interns-name">{{job.jobName}}</span></a>
+            <a href="" target="_blank" data-toggle="modal" data-target="#jobDetailModal"><span class="interns-name">{{job.jobName}}</span></a>
           </div>
         </td>
 
@@ -52,15 +51,55 @@
         <td>
           {{job.jobUpdateTime}}
         </td>
-
         <td>
           <span class="refresh_btn">刷新</span>
           <span class="alter_btn">修改</span>
           <span class="offline_btn">下线</span>
         </td>
-
       </tr>
     </table>
+
+    <!--点击后的弹出框 -->
+    <div class="modal fade" id="jobDetailModal" tabindex="-1" role="dialog" aria-labelledby="jobDetailModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 600px">
+          <div class="modal-header">
+            <h5 class="modal-title" id="jobDetailModalLabel">职位详情</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="education">
+              <h4>权哥科技</h4>
+              <div style="min-height: 250px">
+
+              </div>
+            </div>
+
+            <div class="experience">
+              <h4>公司简介</h4>
+              <div style="min-height: 250px">
+
+              </div>
+            </div>
+
+            <div class="personal">
+              <h4>公司福利</h4>
+              <div style="min-height: 250px">
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">通知面试</button>
+            <button type="button" class="btn btn-primary">不合适</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <p-paginator rows="{{itemsPerPage}}"
                  totalRecords="{{totalRecords}}"
