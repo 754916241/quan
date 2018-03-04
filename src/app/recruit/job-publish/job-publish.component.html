@@ -41,7 +41,7 @@
           <input type="text" class="form-control" placeholder="请填写工作城市" required>
         </div>
 
-        <label class="col-md-2 col-form-label">实习人数</label>
+        <label class="col-md-2 col-form-label">招聘人数</label>
         <div class="col-md-4">
           <input type="number" class="form-control" placeholder="请填写实习人数" required >
         </div>
@@ -90,6 +90,7 @@
         <label class="col-md-2 col-form-label">学历要求</label>
         <div class="col-md-4">
           <select class="form-control">
+            <option>不限</option>
             <option>本科</option>
             <option>专科</option>
             <option>硕士</option>
@@ -99,18 +100,31 @@
       </div>
 
       <div class="form-group row">
-        <label class="col-md-2 col-form-label">企业邮箱</label>
+        <label class="col-md-2 col-form-label">工作经验</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" placeholder="请填写企业邮箱" required>
-        </div>
+          <select class="form-control">
+            <option>不限</option>
+            <option>应届毕业生</option>
+            <option>经验1~3年</option>
+            <option>经验3~5年</option>
+            <option>5~10年</option>
+            <option>10年以上</option>
+          </select>
       </div>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label">职位标签</label>
-        <div class="col-md-10">
-          <input type="text" class="form-control" placeholder="输入多个标签时用空格分割" required>
-        </div>
-      </div>
+      <!--<div class="form-group row">-->
+        <!--<label class="col-md-2 col-form-label">企业邮箱</label>-->
+        <!--<div class="col-md-10">-->
+          <!--<input type="text" class="form-control" placeholder="请填写企业邮箱" required>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="form-group row">-->
+        <!--<label class="col-md-2 col-form-label">职位标签</label>-->
+        <!--<div class="col-md-10">-->
+          <!--<input type="text" class="form-control" placeholder="输入多个标签时用空格分割" required>-->
+        <!--</div>-->
+      <!--</div>-->
 
       <button type="button" class="btn btn-primary">发布职位</button>
 
