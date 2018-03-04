@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {CVBean} from './model/CVBean';
 import { CvMngService } from './service/cv-mng.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {attributeType} from "@angular/language-service/src/html_info";
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-cv-mng',
@@ -78,9 +81,13 @@ export class CvMngComponent implements OnInit {
   public pageChanged(event:any):void {
     let temp=parseInt(event.page)+1;
     this.router.navigateByUrl("recruit/cvMng/"+temp);
-
   }
 
-  public a: number;
+  public showModal(position: number){
+
+    $('#cvDetailModal').modal({
+      keyboard: false
+    });
+  }
 
 }

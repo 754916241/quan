@@ -10,7 +10,7 @@
         <a [class.active]="isActive[0]" class="nav-link"  (click)="getCVData(0)" >待处理简历</a>
       </li>
       <li class="nav-item">
-        <a [class.active]="isActive[1]" class="nav-link" (click)="getCVData(1)">已通知面试</a>
+        <a [class.active]="isActive[1]" class="nav-link"  (click)="getCVData(1)">已通知面试</a>
       </li>
       <li class="nav-item">
         <a [class.active]="isActive[2]" class="nav-link"  (click)="getCVData(2)">不合适</a>
@@ -23,14 +23,14 @@
 
   <!-- 简历列表-->
   <div class="cvMng-detail">
-    <div class="cv-main-content" *ngFor="let cv of cvList; let i =  index;">
+    <div class="cv-main-content" *ngFor="let cv of cvList;let i of index"  >
       <!--头像 -->
       <div class="cv-photo">
         <input type="checkbox" style="width: 16px;height: 16px;">
         <img class="cv-headImg" [src]="cv.empImgPath">
       </div>
 
-      <div class="cv-top" data-toggle="modal" data-target="#cvDetailModal">
+      <div class="cv-top"  (click)="showModal(i)">
         <p class="cv-job">{{cv.empJob}}</p>
         <p class="cv-read">查看简历</p>
         <p class="cv-deliver-time">投递时间：{{cv.empDeliverTime}}</p>
