@@ -23,21 +23,21 @@
 
   <!-- 简历列表-->
   <div class="cvMng-detail">
-    <div class="cv-main-content" *ngFor="let cv of cvList;let i of index"  >
+    <div class="cv-main-content" *ngFor="let cv of cvList;"  >
       <!--头像 -->
       <div class="cv-photo">
         <input type="checkbox" style="width: 16px;height: 16px;">
         <img class="cv-headImg" [src]="cv.empImgPath">
       </div>
 
-      <div class="cv-top"  (click)="showModal(i)">
+      <div class="cv-top"  (click)="setCVBean(cv)" data-toggle="modal" data-target="#cvDetailModal">
         <p class="cv-job">{{cv.empJob}}</p>
         <p class="cv-read">查看简历</p>
         <p class="cv-deliver-time">投递时间：{{cv.empDeliverTime}}</p>
       </div>
 
       <!--详细信息-->
-      <div class="cv-bottom"  data-toggle="modal" data-target="#cvDetailModal">
+      <div class="cv-bottom" (click)="setCVBean(cv)" data-toggle="modal" data-target="#cvDetailModal">
         <span class="cv-name">{{cv.empName}}</span>
         <span>{{cv.empSex}}</span>
         <span>现居{{cv.empAddress}}</span>
@@ -51,62 +51,64 @@
         </div>
       </div>
 
-      <!--点击后的弹出框 -->
-      <div class="modal fade" id="cvDetailModal" tabindex="-1" role="dialog" aria-labelledby="cvDetailModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content" style="width: 600px">
-            <div class="modal-header">
-              <h5 class="modal-title" id="cvDetailModalLabel">简历详情</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+
+    </div>
+
+    <!--点击后的弹出框 -->
+    <div class="modal fade" id="cvDetailModal" tabindex="-1" role="dialog" aria-labelledby="cvDetailModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 700px">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cvDetailModalLabel">简历详情</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="top">
+              <img [src]="cvBean.empImgPath">
+              <span class="name">{{cvBean.empName}}</span>
+              <span class="job">{{cvBean.empJob}}</span>
+              <p class="phone">电话：1333333333</p>
+              <p class="email">邮箱: 455645456@xxx.com</p>
             </div>
-            <div class="modal-body">
-              <div class="top">
-                <img [src]="cv.empImgPath">
-                <span class="name">{{cv.empName}}</span>
-                <span class="job">{{cv.empJob}}</span>
-                <p class="phone">电话：1333333333</p>
-                <p class="email">邮箱: 455645456@xxx.com</p>
-              </div>
 
-              <div class="education">
-                <h4>教育背景</h4>
-                <div style="min-height: 250px">
+            <div class="education">
+              <h4>教育背景</h4>
+              <div style="min-height: 250px">
 
-                </div>
-              </div>
-
-              <div class="experience">
-                <h4>实习经历</h4>
-                <div style="min-height: 250px">
-
-                </div>
-              </div>
-
-              <div class="credentials">
-                <h4>资格证书</h4>
-                <div style="min-height: 250px">
-
-                </div>
-              </div>
-
-              <div class="personal">
-                <h4>自我评价</h4>
-                <div style="min-height: 250px">
-
-                </div>
               </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">通知面试</button>
-              <button type="button" class="btn btn-primary">不合适</button>
+
+            <div class="experience">
+              <h4>实习经历</h4>
+              <div style="min-height: 250px">
+
+              </div>
             </div>
+
+            <div class="credentials">
+              <h4>资格证书</h4>
+              <div style="min-height: 250px">
+
+              </div>
+            </div>
+
+            <div class="personal">
+              <h4>自我评价</h4>
+              <div style="min-height: 250px">
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">通知面试</button>
+            <button type="button" class="btn btn-primary">不合适</button>
           </div>
         </div>
       </div>
-
     </div>
+
 
     <!-- 分页 -->
     <p-paginator rows="{{itemsPerPage}}"

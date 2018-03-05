@@ -14,6 +14,7 @@ export class JobMngComponent implements OnInit {
 
   public isActive: Array<boolean> = [true, false, false, false];
   public jobList: Array<JobBean>;
+  public job: JobBean = new JobBean();
 
   /**
    * 用于分页
@@ -71,6 +72,10 @@ export class JobMngComponent implements OnInit {
   public pageChanged(event:any):void {
     let temp=parseInt(event.page)+1;
     this.router.navigateByUrl("recruit/jobMng/"+temp);
+  }
+
+  public setJobBean(job: JobBean){
+    this.job = job;
   }
 
 }

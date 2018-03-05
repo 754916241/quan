@@ -13,12 +13,16 @@ import {PaginatorModule} from 'primeng/primeng';
 import {JobMngService} from './job-mng/service/job-mng.service';
 import { CompanyInfoComponent } from './user-mng/company-info/company-info.component';
 import { ChangePasswordComponent } from './user-mng/change-password/change-password.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {JobPublishService} from './job-publish/service/job-publish.service';
 
 @NgModule({
   imports: [
     CommonModule,
     RecruitRoutingModule,
-    PaginatorModule
+    PaginatorModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     RecruitComponent,
@@ -29,7 +33,8 @@ import { ChangePasswordComponent } from './user-mng/change-password/change-passw
   ],
   providers: [
     CvMngService,
-    JobMngService
+    JobMngService,
+    JobPublishService
   ]
 })
 export class RecruitModule { }

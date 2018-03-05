@@ -23,65 +23,65 @@
   </div>
 
   <div class="jobPublish-detail">
-    <form>
+    <form class="was-validated" [ngClass]="{'was-validated': isShowError }" [formGroup]="formGroup" (submit)="onSubmit()" role="form">
       <div class="form-group row">
         <label class="col-md-2 col-form-label">职位类别</label>
         <div class="col-md-4">
-          <input type="text" class="form-control" placeholder="请填写职位类别" required>
+          <input type="text" class="form-control" formControlName="jobCatagory" placeholder="请填写职位类别" required>
         </div>
 
         <label class="col-md-2 col-form-label">职位名称</label>
         <div class="col-md-4">
-          <input type="text" class="form-control" placeholder="请填写职位名称" required>
+          <input type="text" class="form-control" formControlName="jobName" placeholder="请填写职位名称" required>
         </div>
       </div>
       <div class="form-group row">
         <label class="col-md-2 col-form-label">工作城市</label>
         <div class="col-md-4">
-          <input type="text" class="form-control" placeholder="请填写工作城市" required>
+          <input type="text" class="form-control" formControlName="jobCity" placeholder="请填写工作城市" required>
         </div>
 
         <label class="col-md-2 col-form-label">招聘人数</label>
         <div class="col-md-4">
-          <input type="number" class="form-control" placeholder="请填写实习人数" required >
+          <input type="number" class="form-control" formControlName="jobPeopleNumber" placeholder="请填写招聘人数" required >
         </div>
       </div>
 
       <div class="form-group row">
         <label class="col-md-2 col-form-label">职位诱惑</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" placeholder="30字左右描述职位诱惑" required>
+          <input type="text" class="form-control" formControlName="jobInducement" placeholder="30字左右描述职位诱惑" required>
         </div>
       </div>
 
       <div class="form-group row">
         <label class="col-md-2 col-form-label">职位描述</label>
         <div class="col-md-10">
-          <textarea class="form-control" placeholder="请填写职位描述" required rows="10"></textarea>
+          <textarea class="form-control" formControlName="jobDescription" placeholder="请填写职位描述" required rows="10"></textarea>
         </div>
       </div>
 
       <div class="form-group row">
         <label class="col-md-2 col-form-label">工作地址</label>
         <div class="col-md-10">
-          <input type="text" class="form-control" placeholder="例如：北京 - 海淀区 - 知春路 - 希格玛大厦" required>
+          <input type="text" class="form-control" formControlName="jobAddress" placeholder="例如：北京 - 海淀区 - 知春路 - 希格玛大厦" required>
         </div>
       </div>
 
-      <div class="form-group row">
+      <div class="form-group row" formGroupName="jobSalary">
         <label class="col-md-2 col-form-label">日薪范围</label>
         <div class="col-md-4">
-          <input type="number" class="form-control" placeholder="最低日薪" required>
+          <input type="number" class="form-control" formControlName="jobLowSalary" placeholder="最低日薪" required>
         </div>
         <div class="col-md-4">
-          <input type="number" class="form-control" placeholder="最高日薪" required >
+          <input type="number" class="form-control" formControlName="jobHighSalary" placeholder="最高日薪" required >
         </div>
       </div>
 
       <div class="form-group row">
         <label class="col-md-2 col-form-label">工作性质</label>
         <div class="col-md-4">
-          <select class="form-control">
+          <select class="form-control" formControlName="jobProperty">
             <option>实习</option>
             <option>兼职</option>
             <option>全职</option>
@@ -89,7 +89,7 @@
         </div>
         <label class="col-md-2 col-form-label">学历要求</label>
         <div class="col-md-4">
-          <select class="form-control">
+          <select class="form-control" formControlName="jobDegree">
             <option>不限</option>
             <option>本科</option>
             <option>专科</option>
@@ -102,7 +102,7 @@
       <div class="form-group row">
         <label class="col-md-2 col-form-label">工作经验</label>
         <div class="col-md-10">
-          <select class="form-control">
+          <select class="form-control" formControlName="jobExperience">
             <option>不限</option>
             <option>应届毕业生</option>
             <option>经验1~3年</option>
@@ -127,7 +127,8 @@
         <!--</div>-->
       <!--</div>-->
 
-      <button type="button" class="btn btn-primary">发布职位</button>
+      <button type="submit" class="btn btn-primary">发布职位</button>
+      <span *ngIf="isShowError">{{errorMessage}}</span>
 
     </form>
 

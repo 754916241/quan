@@ -6,11 +6,14 @@ import {CompanyInfoComponent} from './company-info/company-info.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import { CompanyValidateComponent } from './company-validate/company-validate.component';
 import { CompanyService} from './service/company.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     UserMngComponent,

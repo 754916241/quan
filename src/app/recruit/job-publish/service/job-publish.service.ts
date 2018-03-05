@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import {JobPublishComponent} from '../job-publish.component';
+import {JobPublishBean} from '../model/job-publish';
 
 
 @Injectable()
@@ -11,8 +13,9 @@ export class JobPublishService {
   constructor(public http: HttpClient,
   ) { }
 
-  public getJobList(jobStatus: number = 0): Observable<any> {
-    return this.http.get(this.url, {params: new HttpParams().
-      set('jobStatus', `${jobStatus}`)});
+  public submit(job: JobPublishBean): Observable<JobPublishBean> {
+    /*return this.http.get(this.url, {params: new HttpParams().
+      set('jobStatus', `${jobStatus}`)});*/
+    return this.http.post<JobPublishBean>(this.url, job);
   }
 }

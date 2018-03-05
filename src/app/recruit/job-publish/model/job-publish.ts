@@ -12,5 +12,5 @@ export class JobPublishBean {
   jobProperty: string;
   jobDegree: string;
   jobEmail: string;
-  jobLabel: string;
+  jobExperience: string;
 }

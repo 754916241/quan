@@ -5,7 +5,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {attributeType} from "@angular/language-service/src/html_info";
 import * as $ from 'jquery';
 
-
 @Component({
   selector: 'app-cv-mng',
   templateUrl: './cv-mng.component.html',
@@ -15,6 +14,7 @@ export class CvMngComponent implements OnInit {
 
   public isActive: Array<boolean> = [true, false, false, false];
   public cvList: Array<CVBean>;
+  public cvBean: CVBean;
 
   /**
    * 用于分页
@@ -30,7 +30,9 @@ export class CvMngComponent implements OnInit {
     public cvMngService: CvMngService,
     public router: Router,
     public activeRoute: ActivatedRoute,
-  ) { }
+  ) {
+    this.cvBean = new CVBean();
+  }
 
   ngOnInit() {
     this.activeRoute.params.subscribe(params => {
@@ -64,7 +66,6 @@ export class CvMngComponent implements OnInit {
       res => {
         this.totalRecords = res['cvData'].length;
         this.cvList = res['cvData'].slice(this.offset,this.end>this.totalRecords?this.totalRecords:this.end);
-        //console.log(this.cvList);
       },
       error => {
         console.log(error)
@@ -83,11 +84,8 @@ export class CvMngComponent implements OnInit {
     this.router.navigateByUrl("recruit/cvMng/"+temp);
   }
 
-  public showModal(position: number){
-
-    $('#cvDetailModal').modal({
-      keyboard: false
-    });
+  public setCVBean(cvBean: CVBean): void{
+    this.cvBean = cvBean;
   }
 
 }

@@ -8,7 +8,8 @@ export class CompanyBean {
   companyField: string;
   companyScale: string;
   companyURL: string;
-  companyLabel: string[];
+  companyEmail: string;
+  companyPhone: string;
   companyIntroduction: string;
   companyImgPath: string;
   status: string;
