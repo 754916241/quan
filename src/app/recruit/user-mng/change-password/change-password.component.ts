@@ -24,26 +24,25 @@ export class ChangePasswordComponent implements OnInit {
       oldPassword: [],
       newPassword: [],
       cofirmPassword: [],
-    }, {required: Validators.required,
-              isEquals: this.equalsValidator});
+    }, {validator: [this.equalsValidator, Validators.required]});
   }
 
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit() {
     this.isShowError = !this.formGroup.valid;
-    if(this.formGroup.valid)
+    if (this.formGroup.valid)
       this.companyService.updatePassword(this.formGroup.get('newPassword').value)
         .subscribe(job => console.log(job),
           error => console.log(error));
     else
       /**
-       * 判断日薪大小关系,若通过则说明错误为没有填写完整需求信息
+       * 判断是否有未填项,若有则显示必填错误，否则显示密码不一样错误
        * @type {string | string}
        */
-      this.errorMessage = this.formGroup.get('jobSalary').valid
-        ? '红色框中内容为必填！请填写完整' : '最高日薪必须大于最低日薪！';
+      this.errorMessage = this.formGroup.hasError('equals')
+        ? '两次密码不一致！' : '红色框中内容为必填！请填写完整';
   }
 
   equalsValidator(group: FormGroup): any{
