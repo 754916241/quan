@@ -7,13 +7,13 @@
         <span>职位管理</span>
       </li>
       <li routerLinkActive="active" class="nav-item">
-        <a [class.active]="isActive[0]" class="nav-link" routerLink="hrCenter" (click)="getJobData(0)">招聘中职位</a>
+        <a [class.active]="isActive[0]" class="nav-link" (click)="getJobData(0)">招聘中职位</a>
       </li>
       <li class="nav-item">
-        <a [class.active]="isActive[1]" class="nav-link" routerLink="cvMng" (click)="getJobData(1)">已下线职位</a>
+        <a [class.active]="isActive[1]" class="nav-link" (click)="getJobData(1)">已下线职位</a>
       </li>
       <li class="nav-item">
-        <a [class.active]="isActive[2]" class="nav-link" routerLink="jobMng" (click)="getJobData(2)">已过期职位</a>
+        <a [class.active]="isActive[2]" class="nav-link" (click)="getJobData(2)">已过期职位</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/recruit/jobPublish">发布职位</a>
@@ -49,9 +49,9 @@
           {{job.jobUpdateTime}}
         </td>
         <td>
-          <span class="refresh_btn">刷新</span>
-          <span class="alter_btn">修改</span>
-          <span class="offline_btn">下线</span>
+          <span class="refresh_btn" (click)="getJobData(job.jobStatus)">刷新</span>
+          <span class="alter_btn" routerLink="/recruit/jobPublish">修改</span>
+          <span class="offline_btn" (click)="changeJobStatus(job.id)">下线</span>
         </td>
       </tr>
     </table>

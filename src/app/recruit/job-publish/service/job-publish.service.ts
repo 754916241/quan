@@ -8,7 +8,7 @@ import {JobPublishBean} from '../model/job-publish';
 @Injectable()
 export class JobPublishService {
 
-  public url = 'api/submitJobPublish.json';
+  public url = 'http://localhost:9000/jobController/addJob';
 
   constructor(public http: HttpClient,
   ) { }

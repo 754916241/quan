@@ -63,6 +63,20 @@ export class JobMngComponent implements OnInit {
     );
   }
 
+  public changeJobStatus(id: number){
+
+    return this.jobMngService.changeJobStatus(id).subscribe(
+      res => {
+        this.totalRecords = res['jobData'].length;
+        this.jobList = res['jobData'].slice(this.offset,this.end>this.totalRecords?this.totalRecords:this.end);
+        //console.log(this.cvList);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
   private changeLinkColor(position: number) {
     for(let i = 0; i < 4; i++)
       this.isActive[i] = false;
