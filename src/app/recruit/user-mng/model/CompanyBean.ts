@@ -10,6 +10,7 @@ export class CompanyBean {
   companyURL: string;
   companyEmail: string;
   companyPhone: string;
+  companyShortIntroduction: string;
   companyIntroduction: string;
   companyImgPath: string;
   status: string;

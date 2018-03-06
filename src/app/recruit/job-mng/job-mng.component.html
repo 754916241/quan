@@ -13,7 +13,7 @@
         <a [class.active]="isActive[1]" class="nav-link" (click)="getJobData(1)">已下线职位</a>
       </li>
       <li class="nav-item">
-        <a [class.active]="isActive[2]" class="nav-link" (click)="getJobData(2)">已过期职位</a>
+        <a [class.active]="isActive[2]" class="nav-link"  (click)="getJobData(2)">审核中职位</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/recruit/jobPublish">发布职位</a>
@@ -73,10 +73,20 @@
               <p>
                 发布日期: {{job.jobUpdateTime}}
               </p>
-              <p>
-                截止日期: {{job.jobUpdateTime}}
-              </p>
+              <!--<p>-->
+                <!--截止日期: {{job.jobUpdateTime}}-->
+              <!--</p>-->
+              <p>工作城市：balabala</p>
+              <p>招聘人数：balabala</p>
               <p>职位诱惑：balabala</p>
+              <p>工作地址：balabala</p>
+              <p>最低工资：balabala</p>
+              <p>最高工资：balabala</p>
+              <p>工作性质：bbbbbb</p>
+              <p>职位学历要求：balabala</p>
+              <p>工作经验要求：balabala</p>
+
+
             </div>
 
             <div class="description">
@@ -86,12 +96,12 @@
               </div>
             </div>
 
-            <div class="experience">
-              <h5>公司简介</h5>
-              <div style="min-height: 250px">
+            <!--<div class="experience">-->
+              <!--<h5>公司简介</h5>-->
+              <!--<div style="min-height: 250px">-->
 
-              </div>
-            </div>
+              <!--</div>-->
+            <!--</div>-->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>

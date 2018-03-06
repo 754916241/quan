@@ -6,9 +6,9 @@
   <div class="center-main">
     <div class="cmain-l">
       <div class="editor">
-        <div class="cml-t">
-          <h4>{{company.companyShortName}}</h4>
-        </div>
+        <!--<div class="cml-t">-->
+          <!--<h4>{{company.companyShortName}}</h4>-->
+        <!--</div>-->
         <div class="cml-c">
           <span>地点：{{company.companyAddress}}</span>
           <span>领域：{{company.companyField}}</span>
@@ -30,6 +30,12 @@
       <div class="comintro">
         <p>公司邮箱：{{company.companyEmail}}</p>
         <p>公司电话：{{company.companyPhone}}</p>
+        <p>公司简介</p>
+        <div>
+          {{company.companyShortIntroduction}}
+        </div>
+
+        <br><br>
         <p>公司介绍</p>
         <div>
           {{company.companyIntroduction}}
