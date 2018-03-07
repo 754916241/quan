@@ -14,8 +14,13 @@ export class CvMngService {
             ) { }
 
   public getCVList(cvStatus: number = 0): Observable<any>{
-    return this.http.get(this.url, {params: new HttpParams().
+    return this.http.get(this.url + '/changeCVStatus', {params: new HttpParams().
       set('cvStatus',`${cvStatus}`)});
+  }
+
+  public changeCVStatus(cvStatus: number, cvId: number): Observable<any>{
+    // return this.http.post(this.url + '/changeCVStatus', )
+    return null;
   }
 
 }

@@ -46,7 +46,7 @@
         <!--<span>{{cv.empEntryDate}}后可入职</span>-->
         <div style="margin-top: 10px" (click)="$event.stopPropagation()" >
           <p class="cv-education">{{cv.empSchool}}-{{cv.empMajor}} · {{cv.empDegree}} · {{cv.empGraduationYear}}年毕业</p>
-          <p class="cv-result">不合适</p>
+          <p class="cv-result" (click)="changeCVStatus(2)">不合适</p>
           <p class="cv-result" style="color: #e2811a">面试邀请</p>
         </div>
       </div>

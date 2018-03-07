@@ -88,4 +88,8 @@ export class CvMngComponent implements OnInit {
     this.cvBean = cvBean;
   }
 
+  public changeCVStatus(status: number){
+    this.cvMngService.changeCVStatus()
+  }
+
 }
