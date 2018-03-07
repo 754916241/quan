@@ -23,11 +23,17 @@
 
   .comlogo{
     float: right;
-    position: relative;
     text-align: center;
     .logoimg{
       text-align: center;
       .comlogos{
+        width: 156px;
+        height: 156px;
+      }
+
+      input{
+        opacity: 0;
+        position: absolute;
         width: 156px;
         height: 156px;
       }

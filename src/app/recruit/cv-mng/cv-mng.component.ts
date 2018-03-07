@@ -138,7 +138,7 @@ export class CvMngComponent implements OnInit {
     this.cvMngService.changeCVStatus(id, status).subscribe(
       res => {
         if(res['status'] == 200){
-          this.cvList.splice(position)
+          this.cvList.splice(position, 1);
         }else{
           alert('后台服务器错误请重试');
         }
