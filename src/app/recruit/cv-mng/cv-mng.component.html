@@ -23,7 +23,7 @@
 
   <!-- 简历列表-->
   <div class="cvMng-detail">
-    <div class="cv-main-content" *ngFor="let cv of cvList;"  >
+    <div class="cv-main-content" *ngFor="let cv of cvList;let i of index;"  >
       <!--头像 -->
       <div class="cv-photo">
         <input type="checkbox" style="width: 16px;height: 16px;">
@@ -37,24 +37,23 @@
       </div>
 
       <!--详细信息-->
-      <div class="cv-bottom" (click)="setCVBean(cv)" data-toggle="modal" data-target="#cvDetailModal">
-        <span class="cv-name">{{cv.empName}}</span>
-        <span>{{cv.empSex}}</span>
-        <span>现居{{cv.empAddress}}</span>
+      <div class="cv-bottom" (click)="setCVBean(cv)">
+        <span class="cv-name" data-toggle="modal" data-target="#cvDetailModal">{{cv.empName}}</span>
+        <span data-toggle="modal" data-target="#cvDetailModal">{{cv.empSex}}</span>
+        <span data-toggle="modal" data-target="#cvDetailModal">现居{{cv.empAddress}}</span>
         <!--<span>5天/周</span>-->
         <!--<span>{{cv.empPracticeTime}}个月</span>-->
         <!--<span>{{cv.empEntryDate}}后可入职</span>-->
-        <div style="margin-top: 10px" (click)="$event.stopPropagation()" >
-          <p class="cv-education">{{cv.empSchool}}-{{cv.empMajor}} · {{cv.empDegree}} · {{cv.empGraduationYear}}年毕业</p>
-          <p class="cv-result" (click)="changeCVStatus(2)">不合适</p>
-          <p class="cv-result" style="color: #e2811a">面试邀请</p>
+        <div style="margin-top: 10px">
+          <p class="cv-education" data-toggle="modal" data-target="#cvDetailModal">{{cv.empSchool}}-{{cv.empMajor}} · {{cv.empDegree}} · {{cv.empGraduationYear}}年毕业</p>
+          <p class="cv-result" (click)="changeCVStatus(cv.id, 2, i)">不合适</p>
+          <p class="cv-result" data-toggle="modal" data-target="#interviewModal" style="color: #e2811a">面试邀请</p>
         </div>
       </div>
 
-
     </div>
 
-    <!--点击后的弹出框 -->
+    <!--点击后的简历弹出框 -->
     <div class="modal fade" id="cvDetailModal" tabindex="-1" role="dialog" aria-labelledby="cvDetailModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content" style="width: 700px">
@@ -64,20 +63,13 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body cv-body">
             <div class="top">
               <img [src]="cvBean.empImgPath">
               <span class="name">{{cvBean.empName}}</span>
               <span class="job">{{cvBean.empJob}}</span>
               <p class="phone">电话：1333333333</p>
               <p class="email">邮箱: 455645456@xxx.com</p>
-            </div>
-
-            <div class="experience">
-              <h4>实习经历</h4>
-              <div style="min-height: 150px">
-
-              </div>
             </div>
 
             <div class="education">
@@ -88,7 +80,7 @@
             </div>
 
             <div class="project">
-              <h4>项目经验</h4>
+              <h4>工作经验</h4>
               <div style="min-height: 150px">
 
               </div>
@@ -97,13 +89,6 @@
             <div class="personal">
               <h4>自我描述</h4>
               <div style="min-height: 150px">
-
-              </div>
-            </div>
-
-            <div class="wish">
-              <h4>期望工作</h4>
-              <div style="min-height: 250px">
 
               </div>
             </div>
@@ -117,6 +102,75 @@
       </div>
     </div>
 
+    <!--点击后的面试邀请弹出框 -->
+    <div class="modal fade" id="interviewModal" tabindex="-1" role="dialog" aria-labelledby="interviewModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 700px">
+          <div class="modal-header">
+            <h5 class="modal-title" id="interviewModalLabel">面试邀请</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body interview-body">
+            <form class="was-validated" [ngClass]="{'was-validated': isShowError }" [formGroup]="interViewGroup" (submit)="notifyInterview()" role="form">
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">收件人   :</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" formControlName="name" readonly>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">主题   :</label>
+                <div class="col-md-10">
+                  <label class="col-form-label">关于{{cvBean.empJob}}职位的面试通知</label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">面试时间   :</label>
+                <div class="col-md-10" style="margin-top: 5px">
+                  <p-calendar formControlName="time" showTime="true" [locale]="ch"></p-calendar>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">面试地点   :</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" formControlName="address" placeholder="请填写面试详细地址" required>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">联系人   :</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" formControlName="contactPeople" placeholder="请填写面试联系人" required>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">联系电话   :</label>
+                <div class="col-md-10">
+                  <input type="number" class="form-control" formControlName="phone" placeholder="请填写联系电话" required>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">补充内容   :</label>
+                <div class="col-md-10">
+                  <textarea class="form-control" formControlName="addition" rows="3"></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">发送邀请</button>
+              <span *ngIf="isShowError">{{errorMessage}}</span>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <!-- 分页 -->
     <p-paginator rows="{{itemsPerPage}}"

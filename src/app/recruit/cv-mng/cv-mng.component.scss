@@ -93,12 +93,13 @@
   }
 
   .modal{
-    .modal-body{
+    .cv-body{
 
       h4{
-        font-size: 21px;
+        font-size: 19px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #404040;
+        color: #777777;
+        border-bottom: 1px solid #777777;
       }
       .top{
         img{
@@ -121,6 +122,27 @@
 
       .education{
 
+      }
+    }
+
+    .interview-body{
+      label{
+        font-size: 18px;
+        color: #777777;
+      }
+
+      button{
+        margin-top: 20px;
+        float: right;
+      }
+
+      span{
+        color: red;
+        margin-top: 30px;
+        float: right;
+        margin-right: 20px;
+        font-size: 15px;
+        font-weight: bold;
       }
     }
   }

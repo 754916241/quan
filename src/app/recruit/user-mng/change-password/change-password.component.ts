@@ -33,7 +33,7 @@ export class ChangePasswordComponent implements OnInit {
   onSubmit() {
     this.isShowError = !this.formGroup.valid;
     if (this.formGroup.valid)
-      this.companyService.updatePassword(this.formGroup.get('newPassword').value)
+      this.companyService.updatePassword(this.formGroup.value)
         .subscribe(job => console.log(job),
           error => console.log(error));
     else

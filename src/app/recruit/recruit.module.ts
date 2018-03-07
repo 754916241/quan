@@ -9,12 +9,13 @@ import {JobPublishComponent} from './job-publish/job-publish.component';
 import {UserMngComponent} from './user-mng/user-mng.component';
 import {CvMngComponent} from './cv-mng/cv-mng.component';
 import {CvMngService} from './cv-mng/service/cv-mng.service';
-import {PaginatorModule} from 'primeng/primeng';
+import {CalendarModule, PaginatorModule} from 'primeng/primeng';
 import {JobMngService} from './job-mng/service/job-mng.service';
 import { CompanyInfoComponent } from './user-mng/company-info/company-info.component';
 import { ChangePasswordComponent } from './user-mng/change-password/change-password.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JobPublishService} from './job-publish/service/job-publish.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {JobPublishService} from './job-publish/service/job-publish.service';
     RecruitRoutingModule,
     PaginatorModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CalendarModule
   ],
   declarations: [
     RecruitComponent,

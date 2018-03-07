@@ -4,11 +4,9 @@
   </div>
   <!--具体内容-->
   <div class="center-main">
-    <div class="cmain-l">
+    <div class="cmain-l" data-target="#companyModal" data-toggle="modal">
       <div class="editor">
-        <!--<div class="cml-t">-->
-          <!--<h4>{{company.companyShortName}}</h4>-->
-        <!--</div>-->
+
         <div class="cml-c">
           <span>地点：{{company.companyAddress}}</span>
           <span>领域：{{company.companyField}}</span>
@@ -16,7 +14,6 @@
           <span>网址：{{company.companyURL}}</span>
         </div>
       </div>
-
 
       <!--<span>公司标签：</span>
       <div class="center-pb">
@@ -42,18 +39,82 @@
         </div>
       </div>
 
-
     </div>
 
     <div class="comlogo">
+
       <div class="logoimg">
         <img [src]="company.companyImgPath" class="comlogos">
-
       </div>
-      <p>*图片不能超过300k</p>
+      <p>图片不能超过300k</p>
       <!--<div class="clickup">点击上传logo</div>-->
     </div>
 
   </div>
+
+  <!--点击后的修改信息弹出框 -->
+  <div class="modal fade" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="companyModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="width: 700px">
+        <div class="modal-header">
+          <h5 class="modal-title" id="companyModalLabel">修改公司信息</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="was-validated" [ngClass]="{'was-validated': isShowError }" [formGroup]="companyGroup" (submit)="changeCompany()" role="form">
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label">公司简称   :</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" formControlName="companyShortName" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label">公司网址   :</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" formControlName="companyURL" required>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label">所在城市   :</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" formControlName="companyAddress" placeholder="请填写面试详细地址" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label">行业领域   :</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" formControlName="companyField" placeholder="请填写面试联系人" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label">公司规模   :</label>
+              <div class="col-md-10">
+                <input type="number" class="form-control" formControlName="companyScale" placeholder="请填写联系电话" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label">简短介绍   :</label>
+              <div class="col-md-10">
+                <textarea class="form-control" formControlName="companyShortIntroduction" rows="2"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">修改信息</button>
+            <span *ngIf="isShowError">{{errorMessage}}</span>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>
 

@@ -12,11 +12,12 @@ export class JobMngService {
   ) { }
 
   public getJobList(jobStatus: number = 0): Observable<any> {
-    return this.http.get(this.url + '/getJob');
+    return this.http.get(this.url + '/getJob', {params: new HttpParams().
+      set('jobStatus', `${jobStatus}`)});
   }
 
-  public changeJobStatus(id: number): Observable<boolean> {
-    return this.http.post<boolean>(this.url + 'changeJob', [id, 2]);
+  public changeJobStatus(id: number, jobStatus: number): Observable<any> {
+    return this.http.post<any>(this.url + '/changeJobStatus', {id: id, jobStatus: jobStatus});
   }
 
 }

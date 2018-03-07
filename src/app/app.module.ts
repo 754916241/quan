@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -18,6 +19,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule
     /*FormsModule,
     ReactiveFormsModule*/
   ],

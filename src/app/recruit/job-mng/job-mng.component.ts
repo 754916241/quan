@@ -63,12 +63,18 @@ export class JobMngComponent implements OnInit {
     );
   }
 
-  public changeJobStatus(id: number){
+  /**
+   * 改变当前招聘的职位状态
+   * @param {number} id
+   * @param {number} status
+   * @param {number} position
+   * @returns {Subscription}
+   */
+  public changeJobStatus(id: number, status: number, position: number){
 
-    return this.jobMngService.changeJobStatus(id).subscribe(
+    return this.jobMngService.changeJobStatus(id, status).subscribe(
       res => {
-        this.totalRecords = res['jobData'].length;
-        this.jobList = res['jobData'].slice(this.offset,this.end>this.totalRecords?this.totalRecords:this.end);
+        this.jobList.splice(position,1);
         //console.log(this.cvList);
       },
       error => {
@@ -90,6 +96,14 @@ export class JobMngComponent implements OnInit {
 
   public setJobBean(job: JobBean){
     this.job = job;
+  }
+
+  public changeJobDetail(job: JobBean){
+    this.router.navigate(['recruit/jobPublish'], {
+      queryParams: {
+       id: job.id
+      }
+    });
   }
 
 }

@@ -32,7 +32,7 @@
         <td>操作</td>
       </tr>
 
-      <tr class="job-list-content"  *ngFor="let job of jobList">
+      <tr class="job-list-content"  *ngFor="let job of jobList;let i = index;">
         <td class="interns-rl-fl">
           <div class="mgl-had-check mgl-checks">
             <input type="checkbox">
@@ -50,8 +50,8 @@
         </td>
         <td>
           <span class="refresh_btn" (click)="getJobData(job.jobStatus)">刷新</span>
-          <span class="alter_btn" routerLink="/recruit/jobPublish">修改</span>
-          <span class="offline_btn" (click)="changeJobStatus(job.id)">下线</span>
+          <span class="alter_btn" (click)="changeJobDetail(job)">修改</span>
+          <span class="offline_btn" (click)="changeJobStatus(job.id, 1, i)">下线</span>
         </td>
       </tr>
     </table>

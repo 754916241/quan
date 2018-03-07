@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {JobPublishBean} from "./model/job-publish";
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {JobPublishService} from './service/job-publish.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-job-publish',
@@ -14,10 +15,13 @@ export class JobPublishComponent implements OnInit {
   public isShowError: boolean;
   public errorMessage: string;
   public formGroup: FormGroup;
+  public jobId: number;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     public formBuilder: FormBuilder,
     public jobPublishService: JobPublishService) {
+
     this.isShowError = false;
     this.errorMessage = '红色框中内容为必填！请填写完整';
     this.formGroup = formBuilder.group({
@@ -34,6 +38,17 @@ export class JobPublishComponent implements OnInit {
       jobDegree: ['不限'],
       jobExperience: ['不限'],
     }, {validator: [Validators.required, this.compareValidator]});
+
+    activatedRoute.queryParams.subscribe(queryParams => {
+      this.jobId = queryParams.id;
+    });
+
+    /**
+     * 如果传来的id不为空，则重新为表单赋值
+     */
+    if(this.jobId !== undefined){
+      this.getJobDetail(this.jobId);
+    }
   }
 
   ngOnInit() {
@@ -58,5 +73,32 @@ export class JobPublishComponent implements OnInit {
   compareValidator(group: FormGroup): any{
     return group.get('jobLowSalary').value <=
     group.get('jobHighSalary').value ? null : {compare: true};
+  }
+
+  getJobDetail(jobId: number) {
+     this.jobPublishService.getJobDetail(jobId).subscribe(
+      res => {
+        if(res['status'] == 200){
+            this.jobPublish = res['job'];
+            this.formGroup.patchValue({
+            jobCatagory: this.jobPublish.jobCatagory,
+            jobName: this.jobPublish.jobName,
+            jobCity: this.jobPublish.jobCity,
+            jobPeopleNumber: this.jobPublish.jobPeopleNumber,
+            jobInducement: this.jobPublish.jobInducement,
+            jobDescription: this.jobPublish.jobDescription,
+            jobAddress: this.jobPublish.jobAddress,
+            jobLowSalary: this.jobPublish.jobLowSalary,
+            jobHighSalary: this.jobPublish.jobHighSalary,
+            jobProperty: this.jobPublish.jobProperty,
+            jobDegree: this.jobPublish.jobDegree,
+            jobExperience: this.jobPublish.jobExperience
+          });
+        }
+        else
+          console.log('服务器错误');
+      },
+     error => console.log('前台传送数据失败')
+    );
   }
 }
