@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'recruit',
     loadChildren: './recruit/recruit.module#RecruitModule'
+  },
+  {
+    path: 'user',
+    loadChildren: './recruit/user.module#UserModule'
   }
 ];
 

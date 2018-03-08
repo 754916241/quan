@@ -8,6 +8,7 @@ import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {UserModule} from "./user/user.module";
 
 
 
@@ -21,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
+    UserModule
     /*FormsModule,
     ReactiveFormsModule*/
   ],
