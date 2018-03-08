@@ -7,13 +7,17 @@ import {ChangePasswordComponent} from './change-password/change-password.compone
 import { CompanyValidateComponent } from './company-validate/company-validate.component';
 import { CompanyService} from './service/company.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FileUploadModule} from 'ng2-file-upload';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FileUploadModule,
+    NgbModule
   ],
   declarations: [
     UserMngComponent,

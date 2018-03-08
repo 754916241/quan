@@ -1,6 +1,6 @@
 
 export class CompanyBean {
-  id: string;
+  id: number;
   companyName: string;
   companyPassword: string;
   companyAddress: string;

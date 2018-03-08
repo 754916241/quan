@@ -30,7 +30,7 @@
         <img class="cv-headImg" [src]="cv.empImgPath">
       </div>
 
-      <div class="cv-top"  (click)="setCVBean(cv)" data-toggle="modal" data-target="#cvDetailModal">
+      <div class="cv-top"  (click)="setCVBean(cv)">
         <p class="cv-job">{{cv.empJob}}</p>
         <p class="cv-read">查看简历</p>
         <p class="cv-deliver-time">投递时间：{{cv.empDeliverTime}}</p>
@@ -101,6 +101,52 @@
         </div>
       </div>
     </div>
+
+   <!-- <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">简历详情</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body cv-body">
+          <div class="top">
+            <img [src]="cvBean.empImgPath">
+            <span class="name">{{cvBean.empName}}</span>
+            <span class="job">{{cvBean.empJob}}</span>
+            <p class="phone">电话：1333333333</p>
+            <p class="email">邮箱: 455645456@xxx.com</p>
+          </div>
+
+          <div class="education">
+            <h4>教育经历</h4>
+            <div style="min-height: 150px">
+
+            </div>
+          </div>
+
+          <div class="project">
+            <h4>工作经验</h4>
+            <div style="min-height: 150px">
+
+            </div>
+          </div>
+
+          <div class="personal">
+            <h4>自我描述</h4>
+            <div style="min-height: 150px">
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="c('Close click')">不合适</button>
+        <button type="button" class="btn btn-primary" (click)="c('Close click')">发送通知</button>
+      </div>
+    </ng-template>-->
 
     <!--点击后的面试邀请弹出框 -->
     <div class="modal fade" id="interviewModal" tabindex="-1" role="dialog" aria-labelledby="interviewModalLabel" aria-hidden="true">

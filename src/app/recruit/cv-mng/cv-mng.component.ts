@@ -7,6 +7,7 @@ import * as $ from 'jquery';
 import {error} from 'util';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InterviewBean} from './model/InterviewBean';
+import {ModalDismissReasons, NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-cv-mng',
@@ -22,6 +23,7 @@ export class CvMngComponent implements OnInit {
   public isShowError:boolean = false;
   public title: string;
   public errorMessage: string;
+  private modalRef: NgbModalRef;
 
   /**
    * 用于分页
@@ -56,7 +58,8 @@ export class CvMngComponent implements OnInit {
     public cvMngService: CvMngService,
     public router: Router,
     public activeRoute: ActivatedRoute,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private modalService: NgbModal
   ) {
     this.cvBean = new CVBean();
     this.interViewGroup = this.formBuilder.group({
@@ -121,11 +124,11 @@ export class CvMngComponent implements OnInit {
     this.router.navigateByUrl("recruit/cvMng/"+temp);
   }
 
-  public setCVBean(cvBean: CVBean): void{
+  public setCVBean(cvBean: CVBean, content): void{
     this.cvBean = cvBean;
     //点击之后重新赋值
     this.interViewGroup.patchValue({id: cvBean.id, name: cvBean.empName, title: '关于'+cvBean.empJob+'职位的面试通知'});
-
+    //this.open(content);
   }
 
   /**
@@ -161,7 +164,8 @@ export class CvMngComponent implements OnInit {
           res => {
             console.log(res)
           },
-          error => console.log(error));
+          error => console.log(error)
+        );
     else
       /**
        * 判断日薪大小关系,若通过则说明错误为没有填写完整需求信息
@@ -169,6 +173,31 @@ export class CvMngComponent implements OnInit {
        */
       this.errorMessage = this.interViewGroup.get('phone').valid
         ? '红色框中内容为必填！请填写完整' : '请输入正确的手机号';
+  }
+
+  /**
+   * 弹出框变量及其操作
+   */
+  closeResult: string;
+
+  open(content) {
+    this.modalRef = this.modalService.open(content, {size: 'lg'});
+    this.modalRef.result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
 }

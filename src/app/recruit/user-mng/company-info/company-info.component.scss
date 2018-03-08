@@ -48,6 +48,9 @@
   }
 }
 
+.modal-content{
+  width: 700px;
+}
 .modal-body{
   label{
     font-size: 18px;
@@ -66,5 +69,9 @@
     margin-right: 20px;
     font-size: 15px;
     font-weight: bold;
+  }
+
+  .right{
+    color: green;
   }
 }
