@@ -25,4 +25,9 @@ export class UserService {
     return this.http.get(this.url + 'isLogin');
   }
 
+  public validateManager() : Observable<any> {
+    return this.http.get(this.url + 'isManager');
+  }
+
+
 }
