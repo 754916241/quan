@@ -9,6 +9,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserModule} from "./user/user.module";
+import { ManagerComponent } from './manager/manager.component';
+import { ManageJobComponent } from './manager/manage-job/manage-job.component';
+import {UserService} from './user/service/UserService';
 
 
 
@@ -22,11 +25,12 @@ import {UserModule} from "./user/user.module";
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
-    UserModule
     /*FormsModule,
     ReactiveFormsModule*/
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

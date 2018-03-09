@@ -66,13 +66,13 @@ export class JobPublishComponent implements OnInit {
        * 判断日薪大小关系,若通过则说明错误为没有填写完整需求信息
        * @type {string | string}
        */
-      this.errorMessage = this.formGroup.get('jobSalary').valid
-        ? '红色框中内容为必填！请填写完整' : '最高日薪必须大于最低日薪！';
+      this.errorMessage = this.formGroup.hasError('compare')
+        ? '最高日薪必须大于最低日薪！' : '红色框中内容为必填！请填写完整' ;
   }
 
   compareValidator(group: FormGroup): any{
     return group.get('jobLowSalary').value <=
-    group.get('jobHighSalary').value ? null : {compare: true};
+          group.get('jobHighSalary').value ? null : {compare: true};
   }
 
   getJobDetail(jobId: number) {

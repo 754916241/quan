@@ -20,4 +20,13 @@ export class JobMngService {
     return this.http.post<any>(this.url + '/changeJobStatus', {id: id, jobStatus: jobStatus});
   }
 
+  public deleteJob(id: number): Observable<any> {
+    return this.http.post(this.url + '/deleteJobById', id);
+  }
+
+  public changeJobVerifyStatus(companyId: number, jobId: number, jobVerifyStatus: string, refuseReason?:string): Observable<any> {
+    return this.http.post<any>(this.url + '/changeJobVerifyStatus', {
+      companyId: companyId, jobId: jobId, jobVerifyStatus: jobVerifyStatus, refuseReason: refuseReason});
+  }
+
 }

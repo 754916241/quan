@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {ManagerComponent} from './manager/manager.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'recruit',
+    redirectTo: 'user',
     pathMatch: 'full'
   },
   {
@@ -13,7 +14,11 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: './recruit/user.module#UserModule'
+    loadChildren: './user/user.module#UserModule'
+  },
+  {
+    path: 'manager',
+    loadChildren: './manager/manager.module#ManagerModule'
   }
 ];
 

@@ -153,6 +153,24 @@ export class CvMngComponent implements OnInit {
   }
 
   /**
+   * 删除简历
+   */
+  public deleteCV(id: number, position: number){
+    this.cvMngService.deleteCVById(id).subscribe(
+      res => {
+        if(res['status'] == 200){
+          this.cvList.splice(position, 1);
+        }else{
+          alert('后台服务器错误请重试');
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  /**
    * 发送面试通知
    */
   public notifyInterview(){

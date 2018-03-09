@@ -83,6 +83,18 @@ export class JobMngComponent implements OnInit {
     );
   }
 
+  public deleteJobData(id: number, position: number){
+
+    return this.jobMngService.deleteJob(id).subscribe(
+      res => {
+        this.jobList.splice(position,1);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
   private changeLinkColor(position: number) {
     for(let i = 0; i < 4; i++)
       this.isActive[i] = false;

@@ -27,4 +27,8 @@ export class CvMngService {
     return this.http.post(this.url + '/addInterview', interviewBean);
   }
 
+  public deleteCVById(id: number): Observable<any>{
+    return this.http.post(this.url + '/deleteCVByid', id);
+  }
+
 }

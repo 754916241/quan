@@ -1,3 +1,97 @@
-<p>
-  regist works!
-</p>
+<div class="main">
+  <div class="container">
+    <div class="regist-box">
+      <img src="../../../assets/image/logo.png" class="logo">
+
+      <form  [ngClass]="{'was-validated': isShowError }" [formGroup]="registForm" (submit)="onSubmit()" role="form">
+
+        <div class="form-group row" >
+          <div class="col-md-12" >
+            <label class="center-title">企业用户注册</label>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="username" placeholder="请输入注册的邮箱号" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="password" class="form-control" formControlName="password" placeholder="请输入密码" required >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="companyName" placeholder="请输入企业名" required >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="companyField" placeholder="请输入企业领域" required >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="number" class="form-control" formControlName="companyScale" placeholder="请输入企业规模" required >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="companyURL" placeholder="请输入企业网址" required >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="companyPhone" placeholder="请输入企业电话" required >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="companyCity" placeholder="请输入企业城市" required >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="companyShortIntroduction" placeholder="请输入企业简介"  >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" class="form-control" formControlName="companyIntroduction" placeholder="请输入企业介绍"  >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <p *ngIf="isShowError">{{errorMessage}}</p>
+            <a routerLink="/user/login">已有账号？去登录</a>
+          </div>
+        </div>
+
+        <p>
+          <ngb-alert type="success" *ngIf="isShowRight">
+            <strong>Success!</strong> 注册成功,2秒后跳转至登录界面
+          </ngb-alert>
+        </p>
+
+        <div class="form-group row" style="margin-top: 25px">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary btn-block">注册</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>

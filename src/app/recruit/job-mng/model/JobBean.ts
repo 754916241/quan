@@ -1,10 +1,14 @@
 
 export class JobBean {
   id: string ;
-  jobName =  '先手';
+  jobName: string;
   jobApplyNum: number;
   jobDegree: string;
   jobCity: string;
   jobUpdateTime: Date;
   jobStatus: string;
+  jobError: string;
+  jobVerifyStatus: string;
+  jobCompanyId: number;
+  jobCompanyName: string;
 }

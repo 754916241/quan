@@ -8,4 +8,5 @@ export class InterviewBean {
   contactPeople: string;
   phone: number;
   addition: string;
+  status: string;
 }

@@ -1,0 +1,39 @@
+.container-fluid{
+  margin-top: 100px;
+  background: url("../../../assets/image/login-bg.png");
+  height: 705px;
+
+  .login-form{
+    width: 385px;
+    float: right;
+    margin-top: 150px;
+    margin-right: 20%;
+    background: #fff;
+    height: 385px;
+    padding-left: 50px;
+    padding-top: 50px;
+
+    .form-group{
+      .center-title{
+        color: #007bff;
+        font-size: 25px;
+      }
+
+      .regist{
+        color: #007bff;
+        float: right;
+      }
+
+      .forget-password{
+        color: #777777;
+      }
+
+      p{
+        color: red;
+        font-weight: bold;
+        float: right;
+        font-size: 15px;
+      }
+    }
+  }
+}

@@ -14,4 +14,6 @@ export class CVBean {
   empGraduationYear: number;
   empImgPath: string;
   status: string;
+  interviewTime: string;
+  interviewStatus: string;
 }

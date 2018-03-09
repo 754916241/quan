@@ -30,10 +30,11 @@
         <img class="cv-headImg" [src]="cv.empImgPath">
       </div>
 
-      <div class="cv-top"  (click)="setCVBean(cv)">
+      <div class="cv-top"  (click)="setCVBean(cv)" data-toggle="modal" data-target="#cvDetailModal">
         <p class="cv-job">{{cv.empJob}}</p>
         <p class="cv-read">查看简历</p>
-        <p class="cv-deliver-time">投递时间：{{cv.empDeliverTime}}</p>
+        <p *ngIf="isActive[0]" class="cv-deliver-time">投递时间：{{cv.empDeliverTime}}</p>
+        <p *ngIf="isActive[1]" class="cv-deliver-time">面试时间：{{cv.interviewTime}}</p>
       </div>
 
       <!--详细信息-->
@@ -46,8 +47,11 @@
         <!--<span>{{cv.empEntryDate}}后可入职</span>-->
         <div style="margin-top: 10px">
           <p class="cv-education" data-toggle="modal" data-target="#cvDetailModal">{{cv.empSchool}}-{{cv.empMajor}} · {{cv.empDegree}} · {{cv.empGraduationYear}}年毕业</p>
-          <p class="cv-result" (click)="changeCVStatus(cv.id, 2, i)">不合适</p>
-          <p class="cv-result" data-toggle="modal" data-target="#interviewModal" style="color: #e2811a">面试邀请</p>
+          <p *ngIf="isActive[0] || isActive[1]" class="cv-result" (click)="changeCVStatus(cv.id, 2, i)">不合适</p>
+          <p *ngIf="isActive[0]" class="cv-result" data-toggle="modal" data-target="#interviewModal" style="color: #e2811a">面试邀请</p>
+          <p *ngIf="isActive[1]" class="cv-result" (click)="changeCVStatus(cv.id, 3, i)" style="color: #169af6;">已录用</p>
+          <p *ngIf="isActive[1]" class="cv-result" style="margin-right: 50px">{{cv.interviewStatus}}</p>
+          <p *ngIf="isActive[2] || isActive[3]" class="cv-result" (click)="deleteCV(cv.id, i)" style="color: red;">删除</p>
         </div>
       </div>
 

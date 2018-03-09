@@ -1,3 +1,42 @@
-<p>
-  login works!
-</p>
+<div class="container-fluid">
+
+  <form class="login-form" [ngClass]="{'was-validated': isShowError }" [formGroup]="loginForm" (submit)="onSubmit()" role="form">
+
+    <div class="form-group row" >
+      <div class="col-md-10" >
+        <label class="center-title">用户登录</label>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-10">
+        <input type="text" class="form-control" formControlName="username" placeholder="请输入用户名" required>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-10">
+        <input type="password" class="form-control" formControlName="password" placeholder="请输入密码" required >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-10">
+        <a class="forget-password">忘记密码</a>
+        <a class="regist" routerLink="/user/regist">没有账号？立即注册</a>
+      </div>
+    </div>
+
+    <div class="form-group row" style="margin-top: 35px">
+      <div class="col-md-10">
+        <button type="submit" class="btn btn-primary btn-block">立即登录</button>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-10">
+        <p *ngIf="isShowError">{{errorMessage}}</p>
+      </div>
+    </div>
+  </form>
+</div>

@@ -25,8 +25,10 @@
     <table class="job-list">
      <tr class="job-list-head">
         <td>职位名称<span> </span></td>
-        <td>申请情况<span> </span></td>
-        <td>学历要求<span> </span></td>
+        <td *ngIf="!isActive[2]">申请情况<span> </span></td>
+        <td *ngIf="!isActive[2]">学历要求<span> </span></td>
+        <td *ngIf="isActive[2]">状态<span> </span></td>
+        <td *ngIf="isActive[2]">审核信息<span> </span></td>
         <td>工作城市<span> </span></td>
         <td>更新时间<span> </span></td>
         <td>操作</td>
@@ -40,18 +42,28 @@
           </div>
         </td>
 
-        <td>
-          {{job.jobApplyNum}}
-        </td>
-        <td>{{job.jobDegree}}</td>
+        <td *ngIf="!isActive[2]">{{job.jobApplyNum}}</td>
+        <td *ngIf="!isActive[2]">{{job.jobDegree}}</td>
+
+        <td *ngIf="isActive[2]">{{job.jobVerifyStatus}}</td>
+        <td *ngIf="isActive[2]">{{job.jobError}}</td>
+
         <td>{{job.jobCity}}</td>
         <td>
           {{job.jobUpdateTime}}
         </td>
-        <td>
+        <td *ngIf="isActive[0]">
           <span class="refresh_btn" (click)="getJobData(job.jobStatus)">刷新</span>
           <span class="alter_btn" (click)="changeJobDetail(job)">修改</span>
           <span class="offline_btn" (click)="changeJobStatus(job.id, 1, i)">下线</span>
+        </td>
+        <td *ngIf="isActive[1]">
+          <span class="refresh_btn" (click)="deleteJobData(job.id, i)">删除</span>
+          <span class="offline_btn" (click)="changeJobStatus(job.id, 0, i)">上线</span>
+        </td>
+        <td *ngIf="isActive[2]">
+          <span class="refresh_btn" (click)="deleteJobData(job.id, i)">删除</span>
+          <span class="offline_btn" (click)="changeJobDetail(job)">修改</span>
         </td>
       </tr>
     </table>

@@ -16,6 +16,7 @@ import { ChangePasswordComponent } from './user-mng/change-password/change-passw
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JobPublishService} from './job-publish/service/job-publish.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthGuard} from '../guard/auth-guard';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   providers: [
     CvMngService,
     JobMngService,
-    JobPublishService
+    JobPublishService,
+    AuthGuard
   ]
 })
 export class RecruitModule { }

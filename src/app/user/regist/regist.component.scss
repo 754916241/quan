@@ -1,0 +1,47 @@
+.main{
+  background: url("../../../assets/image/regist-bg.png");
+
+  .container{
+    height: 1000px;
+
+    .regist-box{
+
+      .logo{
+        margin-top: 50px;
+      }
+
+      form{
+        margin-top: 30px;
+        margin-left: 20%;
+        text-align: center;
+        width: 600px;
+        background: #fff;
+        padding: 50px;
+
+        .form-group{
+          text-align: center;
+
+          p{
+            color: red;
+            font-weight: bold;
+            float: left;
+            font-size: 15px;
+          }
+
+          a{
+            color: #007bff;
+            float: right;
+          }
+
+          label{
+            color: #777777;
+            font-size: 25px;
+            font-weight: bold;
+          }
+        }
+      }
+
+    }
+  }
+
+}

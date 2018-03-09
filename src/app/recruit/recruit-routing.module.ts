@@ -5,6 +5,7 @@ import {CvMngComponent} from './cv-mng/cv-mng.component';
 import {JobMngComponent} from './job-mng/job-mng.component';
 import {JobPublishComponent} from './job-publish/job-publish.component';
 import {RecruitComponent} from './recruit.component';
+import {AuthGuard} from '../guard/auth-guard';
 
 
 const routes: Routes = [
@@ -37,7 +38,8 @@ const routes: Routes = [
         path: 'userMng',
         loadChildren: './user-mng/user-mng.module#UserMngModule'
       }
-    ]
+    ],
+    canActivate: [AuthGuard]
   }
 ];
 
