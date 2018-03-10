@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ManagerComponent} from './manager/manager.component';
+import {ErrorPageComponent} from './error-page/error-page.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'manager',
     loadChildren: './manager/manager.module#ManagerModule'
+  },
+  {
+    path: '**',
+    component: ErrorPageComponent
   }
 ];
 

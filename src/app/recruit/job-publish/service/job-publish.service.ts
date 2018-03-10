@@ -23,4 +23,8 @@ export class JobPublishService {
     return this.http.get<{}>(this.url + 'getJobDetail', {params: new HttpParams().
       set('id', `${jobId}`)});
   }
+
+  public updateJob(job: JobPublishBean): Observable<any> {
+    return this.http.post(this.url + 'updateJob', job);
+  }
 }

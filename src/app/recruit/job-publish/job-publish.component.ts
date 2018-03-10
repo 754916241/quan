@@ -58,9 +58,16 @@ export class JobPublishComponent implements OnInit {
     this.isShowError = !this.formGroup.valid;
     // console.log(this.formGroup.value);
     if(this.formGroup.valid)
-      this.jobPublishService.submit(this.formGroup.value)
-        .subscribe(job => console.log(job),
-          error => console.log(error));
+      if(this.jobId !== undefined){
+        this.jobPublishService.updateJob(this.formGroup.value)
+          .subscribe(job => console.log(job),
+            error => console.log(error));
+      }else{
+        this.jobPublishService.submit(this.formGroup.value)
+          .subscribe(job => console.log(job),
+            error => console.log(error));
+      }
+
     else
       /**
        * 判断日薪大小关系,若通过则说明错误为没有填写完整需求信息

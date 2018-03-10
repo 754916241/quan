@@ -12,12 +12,14 @@ import {UserModule} from "./user/user.module";
 import { ManagerComponent } from './manager/manager.component';
 import { ManageJobComponent } from './manager/manage-job/manage-job.component';
 import {UserService} from './user/service/UserService';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
