@@ -50,7 +50,7 @@
           <p *ngIf="isActive[0] || isActive[1]" class="cv-result" (click)="changeCVStatus(cv.id, 2, i)">不合适</p>
           <p *ngIf="isActive[0]" class="cv-result" data-toggle="modal" data-target="#interviewModal" style="color: #e2811a">面试邀请</p>
           <p *ngIf="isActive[1]" class="cv-result" (click)="changeCVStatus(cv.id, 3, i)" style="color: #169af6;">已录用</p>
-          <p *ngIf="isActive[1]" class="cv-result" style="margin-right: 50px">{{cv.interviewStatus}}</p>
+          <p *ngIf="isActive[1]" class="cv-result" style="margin-right: 50px">{{cv.interviewStatus | interviewStatus}}</p>
           <p *ngIf="isActive[2] || isActive[3]" class="cv-result" (click)="deleteCV(cv.id, i)" style="color: red;">删除</p>
         </div>
       </div>

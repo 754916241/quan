@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JobPublishService} from './job-publish/service/job-publish.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginGuard} from '../guard/auth-guard';
+import {CvStatusPipe} from "../pipe/cv-status.pipe";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {LoginGuard} from '../guard/auth-guard';
     HrcenterComponent,
     CvMngComponent,
     JobMngComponent,
-    JobPublishComponent
+    JobPublishComponent,
+    CvStatusPipe
   ],
   providers: [
     CvMngService,

@@ -13,13 +13,13 @@ import { ManagerComponent } from './manager/manager.component';
 import { ManageJobComponent } from './manager/manage-job/manage-job.component';
 import {UserService} from './user/service/UserService';
 import { ErrorPageComponent } from './error-page/error-page.component';
-
-
+import { CvStatusPipe } from './pipe/cv-status.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+   // CvStatusPipe
   ],
   imports: [
     BrowserModule,

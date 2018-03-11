@@ -44,8 +44,7 @@ export class JobMngComponent implements OnInit {
    * @param {number} jobStatus
    * 0:招聘中
    * 1:已下线
-   * 2:已过期
-   * 3:审核中
+   * 2:审核中
    */
   public getJobData(jobStatus: number){
     this.changeLinkColor(jobStatus);
