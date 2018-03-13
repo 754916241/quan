@@ -3,7 +3,6 @@ import {CVBean} from './model/CVBean';
 import { CvMngService } from './service/cv-mng.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {attributeType} from "@angular/language-service/src/html_info";
-import * as $ from 'jquery';
 import {error} from 'util';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InterviewBean} from './model/InterviewBean';
@@ -75,6 +74,7 @@ export class CvMngComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('ng on init');
     this.activeRoute.params.subscribe(params => {
       switch (params.page){
         //代表默认选择第一项(项数从0开始)

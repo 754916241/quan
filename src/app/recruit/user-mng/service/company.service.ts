@@ -19,6 +19,10 @@ export class CompanyService {
     });
   }
 
+  public getAllCompany(): Observable<CompanyBean> {
+    return this.http.get<CompanyBean>(this.url);
+  }
+
   public getCompany(): Observable<any> {
     return this.http.get(this.url);
   }
@@ -53,6 +57,10 @@ export class CompanyService {
     };
 
     this.uploader.queue[0].upload();
+  }
+
+  public changeCompanyStatus(id: number, status: string, refuseReason?: string): Observable<any> {
+    return this.http.post(this.url, {id: id, status: status, refuseReason: refuseReason});
   }
 
 }

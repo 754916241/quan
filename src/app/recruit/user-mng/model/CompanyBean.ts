@@ -14,4 +14,5 @@ export class CompanyBean {
   companyIntroduction: string;
   companyImgPath: string;
   status: string;
+  companyError: string;
 }

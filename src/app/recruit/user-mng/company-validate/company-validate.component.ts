@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CompanyService} from '../service/company.service';
 
 @Component({
   selector: 'app-company-validate',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyValidateComponent implements OnInit {
 
-  constructor() { }
+  public status: string;
+
+  constructor(
+    private companyService: CompanyService
+  ) { }
 
   ngOnInit() {
+    this.getCompanyData();
   }
 
+  private getCompanyData() {
+    this.companyService.getCompany().subscribe(
+      res => {
+        this.status = res['companyData'][0].status;
+      }
+    );
+  }
 }

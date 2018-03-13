@@ -39,11 +39,26 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid)
       this.userService.login(this.loginForm.value)
         .subscribe(res => {
-            this.router.navigate(['recruit'], {
-              queryParams: {
-                username: this.loginForm.get('username').value
+            if(res['status'] == 0){
+              if(res['userType'] == 'admin'){
+                this.router.navigate(['manager'], {
+                  queryParams: {
+                    username: this.loginForm.get('username').value
+                  }
+                });
+              }else if(res['userType'] == 'company'){
+                this.router.navigate(['recruit'], {
+                  queryParams: {
+                    username: this.loginForm.get('username').value
+                  }
+                });
               }
-            });
+
+            }else{
+              this.isShowError = true;
+              this.errorMessage = '用户名或密码错误！';
+            }
+
         },
         error => {
           this.isShowError = true;

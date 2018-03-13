@@ -10,7 +10,7 @@
 
       <div class="proving-name">信息验证</div>
 
-      <div class="proving-status">通过</div>
+      <div *ngIf="status == '0'" class="proving-status">通过</div>
 
       <div class="proving-line"></div>
 
@@ -20,7 +20,8 @@
       <div class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-icon-pass.png?v=8db575211ea61ab9b285bc1aeb37995c)"></div>
 
       <div class="proving-name">证件验证</div>
-      <div class="proving-status ">通过</div>
+      <div *ngIf="status == '0'" class="proving-status">验证中</div>
+      <div *ngIf="status == '1'" class="proving-status">通过</div>
       <div class="proving-line"></div>
 
     </div>

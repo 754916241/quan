@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {ManagerComponent} from './manager.component';
 import {ManageJobComponent} from './manage-job/manage-job.component';
+import {ManageCompanyComponent} from './manage-company/manage-company.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'manageJob/:page',
         component: ManageJobComponent
+      },
+      {
+        path: 'manageCompany/:page',
+        component: ManageCompanyComponent
       }
     ],
     canActivate: []
