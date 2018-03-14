@@ -1,0 +1,77 @@
+.company-list{
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-bottom: 60px;
+  background: #fff;
+  text-align: center;
+  width: 100%;
+
+  .company-list-head{
+    background: #f3f3f3;
+    font-size: 14px;
+    color: #999;
+    height: 40px;
+    td{
+      min-width: 100px;
+      span{
+        border-right: 1px solid #ccc;
+        height: 20px;
+        float: right;
+      }
+    }
+  }
+
+  tr > td > span{
+    color: #169af6;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .company-list-content{
+    height: 55px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+}
+
+.modal{
+  .modal-body{
+
+    h4{
+      margin-bottom: 25px;
+    }
+
+    h5{
+      padding-bottom: 10px;
+      border-bottom: 1px solid #888888;
+    }
+
+    p{
+      margin-top: 10px;
+      font-size: 17px;
+    }
+    .education{
+
+    }
+    .top{
+      img{
+        float:right;
+      }
+
+      .name{
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .job{
+        margin-left: 50px;
+      }
+
+      .phone{
+        margin-top: 20px;
+      }
+    }
+
+  }
+}

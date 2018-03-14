@@ -1,0 +1,97 @@
+<table class="company-list">
+  <tr class="company-list-head">
+    <td>公司名称<span> </span></td>
+    <td>所属领域<span> </span></td>
+    <td>审核信息<span> </span></td>
+    <td>操作</td>
+  </tr>
+
+  <tr class="company-list-content"  *ngFor="let company of companyList;let i = index;">
+    <td class="interns-rl-fl">
+      <div class="mgl-had-check mgl-checks">
+        <a href="#jobDetailModal" data-toggle="modal" (click) = 'setCompanyBean(company)'><span class="interns-name">{{company.companyName}}</span></a>
+      </div>
+    </td>
+
+    <td >{{company.companyField}}</td>
+
+    <td>{{company.companyError}}</td>
+
+    <td>
+      <span  (click)="changeCompanyStatus(company.id, '0')">通过</span>
+      <span data-target="#refuseModal" data-toggle="modal" (click) = 'setCompanyBean(company)'>驳回</span>
+    </td>
+  </tr>
+</table>
+
+<!--点击后的弹出框 -->
+<div class="modal fade" id="jobDetailModal" tabindex="-1" role="dialog" aria-labelledby="jobDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width: 700px">
+      <div class="modal-header">
+        <h5 class="modal-title" id="jobDetailModalLabel">职位详情</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="education">
+          <h4>{{company.companyName}}</h4>
+          <p>
+            公司地址: {{company.companyAddress}}
+          </p>
+          <!--<p>-->
+          <!--截止日期: {{job.jobUpdateTime}}-->
+          <!-- 权哥这块属性你自己填 -->
+          <p>工作城市：balabala</p>
+          <p>招聘人数：balabala</p>
+          <p>职位诱惑：balabala</p>
+          <p>工作地址：balabala</p>
+          <p>最低工资：balabala</p>
+          <p>最高工资：balabala</p>
+          <p>工作性质：bbbbbb</p>
+          <p>职位学历要求：balabala</p>
+          <p>工作经验要求：balabala</p>
+
+
+        </div>
+
+        <div class="description">
+          <h5>公司描述</h5>
+          <div style="min-height: 250px">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--点击拒绝后的弹出框 -->
+<div class="modal fade" id="refuseModal" tabindex="-1" role="dialog" aria-labelledby="refuseModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width: 700px">
+      <div class="modal-header">
+        <h5 class="modal-title" id="refuseModalLabel">驳回原因</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control" rows="5" placeholder="请填写驳回原因" [(ngModel)]="refuseReason"></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeCompanyStatus(company.id, '1')">驳回</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-paginator rows="{{itemsPerPage}}"
+             totalRecords="{{totalRecords}}"
+             first="{{offset}}"
+             (onPageChange)="pageChanged($event)">
+</p-paginator>
