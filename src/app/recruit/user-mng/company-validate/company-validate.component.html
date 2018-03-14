@@ -1,36 +1,44 @@
 <div class="compro cactive">
-  <!--验证通过-->
 
-  <img src="https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-pass.png?v=1ac40c3c8ac985ed430ff120e294407a" class="company-icon">
-  <!--验证失败-->
+  <img *ngIf="status == '1'" src="https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-pass.png?v=1ac40c3c8ac985ed430ff120e294407a" class="company-icon">
+  <img *ngIf="status == '0' || status == '2'" src="https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-fail.png?v=1ac40c3c8ac985ed430ff120e294407a" class="company-icon">
+
 
   <div class="status-content">
     <div class="info-proving proving">
       <div class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-icon-pass.png?v=8db575211ea61ab9b285bc1aeb37995c)"></div>
 
-      <div class="proving-name">信息验证</div>
+      <div class="proving-name">信息提交</div>
 
-      <div *ngIf="status == '0'" class="proving-status">通过</div>
+      <div class="proving-status">通过</div>
 
       <div class="proving-line"></div>
 
     </div>
+
     <div class="license-proving proving">
 
-      <div class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-icon-pass.png?v=8db575211ea61ab9b285bc1aeb37995c)"></div>
-
-      <div class="proving-name">证件验证</div>
+      <div *ngIf="status == '0'" class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/pro-icon-fail.png)"></div>
+      <div *ngIf="status == '1'" class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-icon-pass.png)"></div>
+      <div *ngIf="status == '2'" class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/pro-icon-fail-red.png)"></div>
+      <div class="proving-name">信息验证</div>
       <div *ngIf="status == '0'" class="proving-status">验证中</div>
       <div *ngIf="status == '1'" class="proving-status">通过</div>
+      <div *ngIf="status == '2'" class="proving-status">不通过</div>
       <div class="proving-line"></div>
 
     </div>
 
     <div class="proving-result proving">
 
-      <div class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-icon-pass.png?v=8db575211ea61ab9b285bc1aeb37995c)"></div>
-      <div class="status-result pro-suc">验证成功</div>
+      <div *ngIf="status == '0'" class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/pro-icon-fail.png)"></div>
+      <div *ngIf="status == '1'" class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/prov-icon-pass.png)"></div>
+      <div *ngIf="status == '2'" class="proving-index" style="background-image: url(https://sxsimg.xiaoyuanzhao.com/static/hr/img/pro-icon-fail-red.png)"></div>
 
+      <div class="status-result pro-suc">验证结果</div>
+      <div *ngIf="status == '0'" class="proving-status">验证中</div>
+      <div *ngIf="status == '1'" class="proving-status">通过</div>
+      <div *ngIf="status == '2'" class="proving-status">不通过</div>
     </div>
   </div>
 </div>

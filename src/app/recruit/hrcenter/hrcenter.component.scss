@@ -70,4 +70,31 @@
     margin-top: 50px;
     margin-left: 40%;
   }
+
+  .interview-detail{
+    width: 85%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    table{
+      margin: 0 auto;
+
+      .interview-list-head{
+        background: #fff;
+        color: #999;
+        height: 60px;
+        text-align: center;
+
+        td{
+          min-width: 200px;
+          font-size: 20px;
+        }
+      }
+
+      .interview-list-content{
+        text-align: center;
+        height: 40px;
+        font-size: 17px;
+      }
+    }
+  }
 }

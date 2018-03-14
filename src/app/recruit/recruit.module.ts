@@ -18,6 +18,7 @@ import {JobPublishService} from './job-publish/service/job-publish.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginGuard} from '../guard/auth-guard';
 import {CvStatusPipe} from "../pipe/cv-status.pipe";
+import {HrCenterService} from './hrcenter/service/hr-center.service';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import {CvStatusPipe} from "../pipe/cv-status.pipe";
     CvMngService,
     JobMngService,
     JobPublishService,
-    LoginGuard
+    LoginGuard,
+    HrCenterService
   ]
 })
 export class RecruitModule { }

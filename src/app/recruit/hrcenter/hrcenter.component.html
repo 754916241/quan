@@ -7,21 +7,21 @@
       <div class="hr_banner_content">
         <div class="hr_bc_img"><img src="../../../assets/image/1font.png"></div>
         <div class="hr_content_font">
-          <a routerLink="/recruit/cvMng/1"><p><span class="hr_font1">79</span>待处理简历</p></a>
+          <a routerLink="/recruit/cvMng/1"><p><span class="hr_font1">{{hrCenterData['PostNum']}}</span>待处理简历</p></a>
         </div>
       </div>
 
       <div class="hr_banner_content">
         <div class="hr_bc_img"><img src="../../../assets/image/2font.png"></div>
         <div class="hr_content_font">
-          <a routerLink="/recruit/jobMng/1"><p><span class="hr_font1">5</span>在招职位</p></a>
+          <a routerLink="/recruit/jobMng/1"><p><span class="hr_font1">{{hrCenterData['PositionNum']}}</span>在招职位</p></a>
         </div>
       </div>
 
       <div class="hr_banner_content">
         <div class="hr_bc_img"><img src="../../../assets/image/3font.png"></div>
         <div class="hr_content_font">
-          <a routerLink="/recruit/cvMng/100"><p><span class="hr_font1">3</span>面试安排</p></a>
+          <a routerLink="/recruit/cvMng/100"><p><span class="hr_font1">{{hrCenterData['InterviewNum']}}</span>面试安排</p></a>
         </div>
       </div>
     </div>
@@ -35,11 +35,36 @@
       <span class="hr_line"></span>
     </div>
 
-    <div class="hr_detail">
+    <div *ngIf="interviewList.length !== 0" class="hr_detail">
       <div class="hr-no-data">
         <img src="../../../assets/image/nocontent.png">
         暂时没有符合条件的面试安排
       </div>
+    </div>
+
+    <div class="interview-detail" >
+      <table>
+        <tr class="interview-list-head">
+          <td>姓名</td>
+          <td>面试时间</td>
+          <td>面试职位</td>
+        </tr>
+
+        <tr class="interview-list-content"  *ngFor="let interview of interviewList;">
+
+          <td>{{interview.userName}}</td>
+          <td>{{interview.interviewTime}}</td>
+          <td>{{interview.positionName}}</td>
+
+        </tr>
+        <!--<tr class="interview-list-content">
+          <td>123</td>
+          <td>123</td>
+          <td>123</td>
+        </tr>-->
+
+      </table>
+
     </div>
   </div>
 </div>
