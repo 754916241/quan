@@ -27,8 +27,6 @@ import { CvStatusPipe } from './pipe/cv-status.pipe';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
-    /*FormsModule,
-    ReactiveFormsModule*/
   ],
   providers: [
     UserService

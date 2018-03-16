@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {ManagerComponent} from './manager.component';
 import {ManageJobComponent} from './manage-job/manage-job.component';
 import {ManageCompanyComponent} from './manage-company/manage-company.component';
+import {MessagerGuard} from '../guard/manager-guard';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
         component: ManageCompanyComponent
       }
     ],
-    canActivate: []
+    canActivate: [MessagerGuard]
   }
 ];
 

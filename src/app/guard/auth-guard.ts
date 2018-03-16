@@ -21,7 +21,6 @@ export class LoginGuard implements CanActivate {
         }
       );
 
-      console.log(this.userService.validateLogin());
       return this.userService.validateLogin();
     }
 

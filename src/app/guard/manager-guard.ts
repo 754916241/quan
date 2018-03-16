@@ -1,31 +1,29 @@
 
 
-import {CanActivate, Router} from "@angular/router";
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from "rxjs/Observable";
 import {UserService} from "../user/service/UserService";
+import {Injectable} from '@angular/core';
 
+@Injectable()
 export class MessagerGuard implements CanActivate {
 
   constructor(
-    private router: Router,
-    public userService: UserService) {
+    private userService: UserService,
+    private router: Router) {
   }
 
-  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-    let isPass: boolean = false;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     this.userService.validateManager().subscribe(
       res => {
-        if(res['status'] == 200)
-          isPass = true;
-        else
-          isPass = true;
-      },
-      error => {
-        console.error(error);
-        isPass = true;
+        if (!res) {
+          alert("您没有权限访问该页面");
+          this.router.navigate(['/user/login']);
+        }
       }
     );
-    return true;
+
+    return this.userService.validateManager();
   }
 
 }

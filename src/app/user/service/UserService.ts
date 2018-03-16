@@ -15,7 +15,7 @@ export class UserService {
 
 
   public login(userBean: UserBean){
-    return this.http.post(this.url + 'login', userBean, {withCredentials: true});
+    return this.http.post(this.url + 'query', userBean, {withCredentials: true});
   }
 
   public regist(registBean: {}) : Observable<any>{
@@ -26,8 +26,8 @@ export class UserService {
     return this.http.get<boolean>(this.url + 'isLogin', {withCredentials: true});
   }
 
-  public validateManager() : Observable<any> {
-    return this.http.get(this.url + 'isManager');
+  public validateManager() : Observable<boolean> {
+    return this.http.get<boolean>(this.url + 'isManager', {withCredentials: true});
   }
 
 

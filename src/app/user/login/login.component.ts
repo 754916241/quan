@@ -40,13 +40,15 @@ export class LoginComponent implements OnInit {
       this.userService.login(this.loginForm.value)
         .subscribe(res => {
             if(res['status'] == 0){
-              if(res['userType'] == 'admin'){
+              if(res['data']['userType'] == 'admin'){
                 this.router.navigate(['manager'], {
                   queryParams: {
                     username: this.loginForm.get('username').value
                   }
                 });
-              }else if(res['userType'] == 'company'){
+              }else if(res['data']['userType'] == 'company'){
+                this.userBean = res['data'];
+                console.log(this.userBean);
                 this.router.navigate(['recruit'], {
                   queryParams: {
                     username: this.loginForm.get('username').value

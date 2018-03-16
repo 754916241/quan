@@ -9,6 +9,8 @@ import {FormsModule} from '@angular/forms';
 import {PaginatorModule} from 'primeng/primeng';
 import { ManageCompanyComponent } from './manage-company/manage-company.component';
 import {CompanyService} from '../recruit/user-mng/service/company.service';
+import {MessagerGuard} from '../guard/manager-guard';
+import {UserService} from '../user/service/UserService';
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import {CompanyService} from '../recruit/user-mng/service/company.service';
   ],
   providers: [
     JobMngService,
-    CompanyService
+    CompanyService,
+    MessagerGuard,
+    UserService
   ]
 })
 export class ManagerModule { }
